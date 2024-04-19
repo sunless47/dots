@@ -1,0 +1,7 @@
+[http]
+	version = HTTP/1.1
+[user]
+	email = sunlesskelv@gmail.com
+	name = sunless13
+[init]
+	defautBranch = main

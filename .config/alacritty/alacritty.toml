@@ -1,0 +1,7 @@
+[window]
+opacity = 0.5
+
+[font]
+normal = {family = "JetBrainsMonoNerdFontMono", style = "Regular"}
+bold = {family = "JetBrainsMonoNerdFontMono", style = "Bold"}
+italic = {family = "JetBrainsMonoNerdFontMono", style = "Italic"}

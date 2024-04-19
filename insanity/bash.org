@@ -1,0 +1,113 @@
+* scripts
+demons, hell, personal notes fzf
+timeshift, paruz future
+make fzf config
+fix preview not wrapping text
+
+* good
+reusable
+no unnecessary work
+no errors
+
+* boiler
+#!/usr/bin env bash
+
+* basics
+export PATH = "$PATH:~/.local/bin"
+bash -x - debugging
+set -x - start debugging
+set +x - stop debugging
+date=`date` replaced by date=$(date)
+
+* variables
+dog="hi"
+read -p "hi" dog
+
+* parameters
+echo "hi" $1 - first
+$@ - all
+
+* file expressions
+-f - file exists
+-d - directory exists
+-z - length of string zero
+-n - length of string non-zero
+
+* exit status
+#+begin_src bash
+[[ $? -eq 0 ]]
+[[ $? -gt 0 ]]
+#+end_src
+
+* if statements
+#+begin_src bash
+if [[ -z $name ]]; then
+  echo "no name huh"
+  else
+  echo "hi $name"
+fi
+
+if (( $EUID == 0 )); then
+  echo "root? ... ummm, no, just no"
+  exit
+fi
+#+end_src
+
+* case statements
+case $cc in
+  cow)
+    echo "ny"
+  ;;
+
+  goat)
+    echo "ny"
+  ;;
+
+  *)
+    echo "ny"
+  ;;
+esac
+
+* for loop
+for var in ${list}
+do
+  ehco
+done
+
+* functions
+function fn(){}
+fn(){}
+declare, make on big function, call one big function
+
+* color
+green='\e[32m'
+blue='\e[34m'
+white='\e[0m'
+
+* printf
+printf "%s\n" "Hi"
+
+* comment title
+title, date, author, description
+
+* awk
+awk -F / '{ total $2 }'
+
+* find
+-d - depth
+-maxdepth 4
+-type (d,f)
+
+* fzf
++s - --no-sort
+--no-mouse
+--keep-right - keep right visible
+--multi - select multiple files with tab
+--delimeter
+learn bat
+--preview'{}' - s-up
+check paruz
+
+* bat
+-n | --style=numbers = show only numbers
+--color {auto, never, always} = colored

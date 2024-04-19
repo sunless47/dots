@@ -1,0 +1,2 @@
+set recolor true
+map <C-i> recolor

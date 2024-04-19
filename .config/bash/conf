@@ -1,0 +1,14 @@
+# colors
+#red='\e[31m'
+#green='\e[32m'
+#brown='\e[33m'
+#violet='\e[35m'
+blue='\e[34m'
+white='\e[0m'
+
+# prompt
+PS1="${blue}\w ${blue}\$ ${white}"
+
+# fzf
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash

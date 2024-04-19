@@ -1,0 +1,124 @@
+#+STARTUP: content hideblocks
+* dreams
+dashboard
+email
+browser - pretty ez
+mpd
+tex
+diary
+
+* radiance
+ispell
+
+* docs
+ret - follow link
+tab | S-tab - next and prev hyperlink
+n | p - next and prev pages
+
+** C-h | F1
+i - info
+C-f - faq
+C-t - todo
+
+* ui
+tool bar
+menu bar
+mode line
+minibuffer
+
+* basics
+scratch is for doodling and will not be saved
+f1 - c-h
+frames - gui applications (c-x 5 f)
+
+** commands
+C-x C-f - find file
+C-x C-v - alternate file
+C-x C-s - save file
+C-x C-w - save as
+C-x C-c - exit
+C-h i - info
+
+* navigation
+M- > | < - end and start
+C-M- a | e - end and start of function
+
+* editing
+C-d - del under cursor
+M-d - del word
+C-k - del line
+M-k - del sentence
+C-y - yank back
+M-w - copy
+C-w - cut
+C-/ - undo
+C-g / - redo
+M-t - swap forward (ensure in word)
+M- u | l | c - case
+M-- u | l | c - last word
+
+* Buffers
+C-x C-b - list all buffers
+C-x b - select buffer
+C-x k - kill buffer
+C-x 0 - delete window
+C-x 3 - horizontal
+C-x 4 - vertical
+C-x o - other window
+k | d - death mark
+u - remove mark
+s - save
+x - execute
+C-x ^ - vertical increase (use c-u)
+C-x } - horizontal increase
+
+* shell
+(setq shell-file-name "/bin/bash")
+
+* eww
+M-x eww - launch
+tab | S-tab - cycle hyperlinks
+q - quit
+B | b - show and add bookmarks
+H - browser history
+R - reader mode?
+C-u ret - open link with external browser
+w - copy link
+
+* dired
+ret | o | f - enter dir or open file
+^ - up directory
+q - quit
+n | C-n  - navigating list
+m - mark
+u | U - unmark | everything
+d - mark for death
+C - copy
+R - rename | move
+x - delete flaged
++ - create directory
+
+* org
+M-x org-mode
+# - comment
+C-c C-n | C-p - headings
+
+** todo
+C-c C-t - todo
+C-c , - add priority
+C-c . - time stamp (y,m,w,d,h +)
+C-c C-d - deadline
+C-c C-s - schedule
+C-c / d - list all deadlins in the file
+C-c C-x C-i | C-o | C-q - clock in, out and quit
+C-c C-x 0 | , | ; | _ - start, pause, countdown and stop
+
+** calendar
+C-spc M-= - days between
+q = quit
+
+* links
+C-c C-o - follow
+#+BEGIN_SRC emacs-lisp
+[[link][name]]
+#+END_SRC

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#=================#
+# hell navigation #
+#=================#
+
+# hell directory
+dire=$HOME/hell
+
+# selecting topic
+topic=$(find ${dire} -type d | awk -F / '{print $5}' | fzf)
+
+# stop if no input
+if [[ -z $topic ]]; then
+  exit
+fi
+
+# selecting book
+book=$(find ${dire}/${topic} -type f | awk -F / '{print $6}' | fzf)
+
+# stop if no input
+if [[ -z $book ]]; then
+  exit
+fi
+
+# opening with zathura
+zathura ${dire}/${topic}/"${book}" 2> /dev/null &

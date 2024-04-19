@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#==============#
+# edit scripts #
+#==============#
+
+# target directory
+dire="$HOME/.local/bin"
+
+# list everything, print specific column, preview with bat 
+script=$(find ${dire} -type f | awk -F / '{print $6}' | fzf --multi --keep-right --preview 'bat --language bash $HOME/.local/bin/{1}')
+
+# stop if no input
+if [[ -z $script ]]; then
+  exit
+fi
+
+# open with nvim
+nvim "${dire}/${script}"

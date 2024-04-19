@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#===========================#
+# shutdown prompt with tofi #
+#===========================#
+
+# print options
+fate=$(echo -e "Soul\nBody" | tofi --width=50% --height=20% --prompt-text="What are you willing to lose first?")
+
+# run chosen command
+case ${fate} in
+
+  Soul)
+    shutdown --no-wall now
+  ;;
+
+  Body)
+    reboot --no-wall
+  ;;
+
+esac

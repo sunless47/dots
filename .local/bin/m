@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#========================#
+# music prompt with tofi #
+#========================#
+
+# print music genres with tofi
+music=$(echo -e "automata\ndoki\ndoom\nlilies\nnight\nsouls\n" | tofi --height=40% --prompt-text="Music ")
+
+# assigning music player to a variable
+play="mpv --no-terminal --shuffle --loop-playlist --playlist=/home/sunless/silence/"
+
+# play selected music
+case ${music} in
+
+  automata)
+    ${play}${music} &
+  ;;
+
+  doki)
+    ${play}${music} &
+  ;;
+
+  doom)
+    ${play}${music} &
+  ;;
+
+  lilies)
+    ${play}${music} &
+  ;;
+
+  night)
+    ${play}${music} &
+  ;;
+
+  souls)
+    ${play}${music} &
+  ;;
+
+esac

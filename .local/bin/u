@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#=================
+# System Updator #
+#=================
+sudo pacman -Syyyu

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#=============#
+# App Deleter #
+#=============#
+
+# Arch specific fzf uses - Arch wiki 
+# what matters is that, it works
+pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rnsu

@@ -1,0 +1,4 @@
+* today
+git and markdown
+dot files
+nvim ide

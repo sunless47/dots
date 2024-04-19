@@ -1,0 +1,222 @@
+#+STARTUP: content hideblocks
+* QoL section
+Minor quality-of-life modifications for a more pleasant Emacs experience
+** Enable line numbers
+Emacs breaks certain modes when it has line-numbers-mode enabled, (like docview or ansi-term) so I utilize the approach of only enabling it on some major modes rather than globally
+#+BEGIN_SRC emacs-lisp
+  (line-number-mode 0)
+#+END_SRC
+
+** Show parent parentheses
+#+BEGIN_SRC emacs-lisp
+  (show-paren-mode t)
+#+END_SRC
+
+** Disable the default startup screen
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-message t)
+#+END_SRC
+
+** Disable most gui elements
+#+BEGIN_SRC emacs-lisp
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (setq-default mode-line-format nil)
+#+END_SRC
+
+** Enable copypasting outside of Emacs
+#+BEGIN_SRC emacs-lisp
+  (setq x-select-enable-clipboard t)
+#+END_SRC
+
+** Disable automatic creation of backup files
+#+BEGIN_SRC emacs-lisp
+  (setq make-backup-files nil)
+  (setq auto-save-default nil)
+#+END_SRC
+
+** Enable conservative scrolling
+#+BEGIN_SRC emacs-lisp
+  (setq scroll-conservatively 100)
+#+END_SRC
+
+** Disable ring-bell
+#+BEGIN_SRC emacs-lisp
+  (setq ring-bell-function 'ignore)
+#+END_SRC
+
+** Transparency
+#+BEGIN_SRC emacs-lisp
+  (set-frame-parameter nil 'alpha-background 40)
+  (add-to-list 'default-frame-alist '(alpha-background . 40))
+#+END_SRC
+
+** Indentation
+#+BEGIN_SRC emacs-lisp
+  (setq-default tab-width 2)
+  (setq-default standard-indent 2)
+  (setq c-basic-offset tab-width)
+  (setq-default electric-indent-inhibit t)
+  (setq-default indent-tabs-mode t)
+  (setq backward-delete-char-untabify-method 'nil)
+#+END_SRC
+
+** Enable prettify symbols mode
+#+BEGIN_SRC emacs-lisp
+  (global-prettify-symbols-mode t)
+#+END_SRC
+
+** Enable bracket pair-matching
+#+BEGIN_SRC emacs-lisp
+  (setq electric-pair-pairs '(
+                              (?\{ . ?\})
+                              (?\( . ?\))
+                              (?\[ . ?\])
+                              (?\" . ?\")
+                              ))
+  (electric-pair-mode t)
+#+END_SRC
+
+** Creating a new window switches your cursor to it
+#+BEGIN_SRC emacs-lisp
+  (defun split-and-follow-horizontally ()
+	(interactive)
+	(split-window-below)
+	(balance-windows)
+	(other-window 1))
+  (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+
+  (defun split-and-follow-vertically ()
+	(interactive)
+	(split-window-right)
+	(balance-windows)
+	(other-window 1))
+  (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+#+END_SRC
+
+** Transform yes-or-no questions into y-or-n
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+** Defer loading most packages for quicker startup times
+#+BEGIN_SRC emacs-lisp
+(setq use-package-always-defer t)
+#+END_SRC
+
+** scratch
+#+BEGIN_SRC emacs-lisp
+(setq initial-scratch-message "")
+#+END_SRC
+
+* Remaps
+** switching windows
+#+BEGIN_SRC emacs-lisp
+  ;; switch windows
+  (windmove-default-keybindings)
+
+#+END_SRC
+
+* Org mode
+** Indenting
+#+BEGIN_SRC emacs-lisp
+  (use-package org
+    :config
+    (add-hook 'org-mode-hook 'org-indent-mode)
+    (add-hook 'org-mode-hook
+              '(lambda ()
+                 (visual-line-mode 1))))
+
+  (use-package org-indent
+    :diminish org-indent-mode)
+
+  (use-package htmlize
+    :ensure t)
+#+END_SRC
+
+** TODO
+#+BEGIN_SRC emacs-lisp
+  ;; more todo options
+   (setq org-todo-keywords
+      '((sequence "TODO" "RADIANCE" "SHADOWS" "|" "DONE" "FUTURE's PROBLEM")))
+
+  ;; logging time
+  (setq org-log-done 'time)
+#+END_SRC
+
+** Agenda
+#+BEGIN_SRC emacs-lisp
+  ;; entries from diary
+    (setq org-agenda-include-diary t)
+  ;; agenda files
+    (setq org-agenda-files (list "~/darkness"
+                                 "~/insanity"
+                                 "~/murder"))
+#+END_SRC
+
+* Use-package section
+** Melpa
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+        '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+#+END_SRC
+
+** Use-package
+#+BEGIN_SRC emacs-lisp
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+#+END_SRC
+
+** Auto-package-update
+*** Description
+Auto-package-update automatically updates and removes old packages
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-package-update
+    :defer nil
+    :ensure t
+    :config
+    (setq auto-package-update-delete-old-versions t)
+    (setq auto-package-update-hide-results t)
+    (auto-package-update-maybe))
+#+END_SRC
+
+** Which key
+*** Description
+Incredibly useful package; if you are in the middle of a command and don't know what to type next, just wait a second and you'll get a nice buffer with all possible completions
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :ensure t
+    :diminish which-key-mode
+    :init
+    (which-key-mode))
+#+END_SRC
+
+** Magit
+*** Description
+Git porcelain for Emacs
+*** Code
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t)
+#+END_SRC
+
+** PDF-tools
+#+BEGIN_SRC emacs-lisp
+  (use-package pdf-tools
+    :ensure t)
+#+END_SRC
+   	
+** Tex
+fix when online
+(use-package tex
+  :ensure auctex
+  (with-eval-after-load 'tex
+    (add-to-list 'TeX-view-program-selection
+                 '(output-pdf "zathura"))))

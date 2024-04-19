@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#========================#
+# bash configs navigator #
+#========================#
+
+# target all bash configs
+conf=( "$HOME/.config/bash/alias"\ 
+  "$HOME/.config/bash/conf"\ 
+  "$HOME/.bashrc"\ 
+  "$HOME/.bash_profile"\ 
+  "/etc/bash.bashrc")
+
+# list everything and open with emacs
+find ${conf[@]} | fzf --multi --keep-right --preview 'bat {1}' | xargs -ro emacs -nw

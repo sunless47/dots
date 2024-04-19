@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#===================#
+# configs navigator #
+#===================#
+
+# target directory
+dire="$HOME/.config/"
+
+# list everything and open with emacs
+find ${dire} -type f | fzf --keep-right --preview 'bat {1}' | xargs -ro emacs -nw

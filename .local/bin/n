@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#=================#
+# notes navigator #
+#=================#
+
+# target directories with notes
+dire=( "$HOME/darkness/" "$HOME/insanity/" "$HOME/murder/" )
+
+# list everything and open with emacs
+find ${dire[@]}*.org -type f | fzf --keep-right --preview 'bat {1}' | xargs -ro emacs -nw

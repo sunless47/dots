@@ -1,0 +1,10 @@
+* dotfiles
+dotfiles.github.io
+bare git repository (atlassian)
+mkdir .local/dotfiles
+cd .local/dotfiles
+git init --bare
+bashrc "/usr/bin/git --git-dir=$HOME/.local/dotfiles --work-tree=$HOME"
+alias config --local status.showUntrackedFiles no
+alias add penis
+alias commit -m "big"

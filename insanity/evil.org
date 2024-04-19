@@ -1,0 +1,10 @@
+* quest
+learn
+establish ide
+spell checking
+
+* docs
+c- ] | 0 - follow link
+
+* rubick
+vim.g.mapleader = " "
