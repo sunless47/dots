@@ -1,3 +1,0 @@
-* zathura
-add page number (sus z)
-remove highlighting

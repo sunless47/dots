@@ -1,5 +1,0 @@
-#+STARTUP: overview
-* emacs
-c-c c-o - block (document)
-c-c c-f - save view errors
-c-c c-c - compile
