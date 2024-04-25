@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#==================================#
+# play specific song in the folder #
+#==================================#
+
+# list everything with fzf
+songs=$(find * | fzf)
+
+# mpv
+mpv --terminal=no --loop=inf "${songs}" &

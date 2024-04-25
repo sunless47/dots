@@ -11,4 +11,6 @@ conf=( "$HOME/.config/bash/alias"\
   "/etc/bash.bashrc")
 
 # list everything and open with emacs
-find ${conf[@]} | fzf --multi --keep-right --preview 'bat {1}' | xargs -ro emacs -nw
+find ${conf[@]} | \
+fzf --multi --keep-right --preview 'bat {}' | \
+xargs -ro nvim

@@ -7,7 +7,11 @@
 dire="$HOME/.local/bin"
 
 # list everything, print specific column, preview with bat 
-script=$(find ${dire} -type f | awk -F / '{print $6}' | fzf --multi --keep-right --preview 'bat --language bash $HOME/.local/bin/{1}')
+script=$( \
+  find ${dire} -type f | \
+  awk -F / '{print $6}' | \
+  fzf --multi --keep-right --preview 'bat --language bash $HOME/.local/bin/{}'\
+)
 
 # stop if no input
 if [[ -z $script ]]; then
