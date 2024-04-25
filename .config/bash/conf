@@ -1,14 +1,32 @@
+# ps1
 # colors
-#red='\e[31m'
-#green='\e[32m'
-#brown='\e[33m'
-#violet='\e[35m'
-blue='\e[34m'
-white='\e[0m'
+BLUE="$(tput setaf 4)"
+GREEN="$(tput setaf 2)"
+RED="$(tput setaf 1)"
+RESET="$(tput sgr0)"
 
-# prompt
-PS1="${blue}\w ${blue}\$ ${white}"
+# exit status
+exitStatus()
+{
+    if [[ $? == 0 ]]; then
+        echo "${GREEN}:)"
+    else
+        echo "${RED}XO"
+    fi
+}
+
+# right
+rightprompt()
+{
+    printf "%*s" $COLUMNS "$(date +%R\ %a\ %d\ %b)"
+}
+
+# final form
+PS1="$(tput sc; rightprompt; tput rc)\$(exitStatus) ${BLUE}\w \$${RESET} "
 
 # fzf
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
+
+# autocd from arch
+shopt -s autocd

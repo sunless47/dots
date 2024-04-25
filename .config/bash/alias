@@ -1,23 +1,15 @@
 # system
 alias grep='grep --color=auto'
-alias sn="shutdown now"
-alias r="source ~/.bashrc; clear"
-alias ..="cd .."
+alias ls='ls -XA --format=single-column -1 --color=auto'
+alias ll='ls -XAgoh --color=auto'
+alias l='source ~/.bashrc; clear'
+
+# critical
+alias w="swww init; swww img /home/sunless/alchemy/arch/ecl.jpg; clear"
+alias dot="/usr/bin/git --git-dir=$HOME/alchemy/arch/dotbare/ --work-tree=$HOME"
 
 # pacman
 alias i="sudo pacman -S"
 
-# ls
-alias ls='ls -XA --format=single-column -1 --color=auto'
-alias ll='ls -XAgoh --color=auto'
-
-# apps
-alias v="nvim"
-alias w="swww init; swww img /home/sunless/alchemy/arch/ecl.jpg; clear"
-alias e="emacs -nw"
-
 # downloads
-alias ee="aria2c --dht-entry-point=router.bittorrent.com:6881 --dht-entry-point=dht.transmissionbt.com:6881 --dht-entry-point=router.utorrent.com:6881"
 alias ms="yt-dlp -xciw -f "bestaudio/best" --audio-quality 0 --audio-format mp3 --embed-thumbnail"
-
-alias dot="/usr/bin/git --git-dir=$HOME/alchemy/arch/dotbare/ --work-tree=$HOME"
