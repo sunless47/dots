@@ -8,13 +8,13 @@
 quotedLs(){
   for i in *
   do
-    printf "\'%s\'\n" "$i"
+    printf "\"%s\"\n" "$i"
   done
 
   # those sneaky dot files
   for d in .*
   do
-    printf "\'%s\'\n" "$d"
+    printf "\"%s\"\n" "$d"
   done
 }
 

@@ -27,6 +27,7 @@ PS1="$(tput sc; rightprompt; tput rc)\$(exitStatus) ${BLUE}\w \$${RESET} "
 # fzf
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
+export FZF_ALT_C_COMMAND="fd --type d --hidden --follow . "
 
-# autocd from arch
+# autocd from arch wiki
 shopt -s autocd

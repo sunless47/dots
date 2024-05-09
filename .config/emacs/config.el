@@ -68,42 +68,44 @@
 (global-set-key "\M-n" 'next-buffer)
 (global-set-key "\M-p" 'previous-buffer)
 
+(setq confirm-kill-processes nil)
+
 (defvar elpaca-installer-version 0.7)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
 (defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
 (defvar elpaca-order '(elpaca :repo "https://github.com/progfolio/elpaca.git"
-															:ref nil :depth 1
-															:files (:defaults "elpaca-test.el" (:exclude "extensions"))
-															:build (:not elpaca--activate-package)))
+                              :ref nil :depth 1
+                              :files (:defaults "elpaca-test.el" (:exclude "extensions"))
+                              :build (:not elpaca--activate-package)))
 (let* ((repo  (expand-file-name "elpaca/" elpaca-repos-directory))
-			 (build (expand-file-name "elpaca/" elpaca-builds-directory))
-			 (order (cdr elpaca-order))
-			 (default-directory repo))
-	(add-to-list 'load-path (if (file-exists-p build) build repo))
-	(unless (file-exists-p repo)
-		(make-directory repo t)
-		(when (< emacs-major-version 28) (require 'subr-x))
-		(condition-case-unless-debug err
-				(if-let ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
-								 ((zerop (apply #'call-process `("git" nil ,buffer t "clone"
-																								 ,@(when-let ((depth (plist-get order :depth)))
-																										 (list (format "--depth=%d" depth) "--no-single-branch"))
-																								 ,(plist-get order :repo) ,repo))))
-								 ((zerop (call-process "git" nil buffer t "checkout"
-																			 (or (plist-get order :ref) "--"))))
-								 (emacs (concat invocation-directory invocation-name))
-								 ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
-																			 "--eval" "(byte-recompile-directory \".\" 0 'force)")))
-								 ((require 'elpaca))
-								 ((elpaca-generate-autoloads "elpaca" repo)))
-						(progn (message "%s" (buffer-string)) (kill-buffer buffer))
-					(error "%s" (with-current-buffer buffer (buffer-string))))
-			((error) (warn "%s" err) (delete-directory repo 'recursive))))
-	(unless (require 'elpaca-autoloads nil t)
-		(require 'elpaca)
-		(elpaca-generate-autoloads "elpaca" repo)
-		(load "./elpaca-autoloads")))
+       (build (expand-file-name "elpaca/" elpaca-builds-directory))
+       (order (cdr elpaca-order))
+       (default-directory repo))
+  (add-to-list 'load-path (if (file-exists-p build) build repo))
+  (unless (file-exists-p repo)
+    (make-directory repo t)
+    (when (< emacs-major-version 28) (require 'subr-x))
+    (condition-case-unless-debug err
+        (if-let ((buffer (pop-to-buffer-same-window "*elpaca-bootstrap*"))
+                 ((zerop (apply #'call-process `("git" nil ,buffer t "clone"
+                                                 ,@(when-let ((depth (plist-get order :depth)))
+                                                     (list (format "--depth=%d" depth) "--no-single-branch"))
+                                                 ,(plist-get order :repo) ,repo))))
+                 ((zerop (call-process "git" nil buffer t "checkout"
+                                       (or (plist-get order :ref) "--"))))
+                 (emacs (concat invocation-directory invocation-name))
+                 ((zerop (call-process emacs nil buffer nil "-Q" "-L" "." "--batch"
+                                       "--eval" "(byte-recompile-directory \".\" 0 'force)")))
+                 ((require 'elpaca))
+                 ((elpaca-generate-autoloads "elpaca" repo)))
+            (progn (message "%s" (buffer-string)) (kill-buffer buffer))
+          (error "%s" (with-current-buffer buffer (buffer-string))))
+      ((error) (warn "%s" err) (delete-directory repo 'recursive))))
+  (unless (require 'elpaca-autoloads nil t)
+    (require 'elpaca)
+    (elpaca-generate-autoloads "elpaca" repo)
+    (load "./elpaca-autoloads")))
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca `(,@elpaca-order))
 ;; Install a package via the elpaca macro
@@ -113,8 +115,8 @@
 
 ;; Install use-package support
 (elpaca elpaca-use-package
-	;; Enable use-package :ensure support for Elpaca.
-	(elpaca-use-package-mode))
+  ;; Enable use-package :ensure support for Elpaca.
+  (elpaca-use-package-mode))
 
 ;;When installing a package which modifies a form used at the top-level
 ;;(e.g. a package which adds a use-package key word),
@@ -131,20 +133,20 @@
 
 ;; idk, indenting?
 (use-package org
-	:config
-	(add-hook 'org-mode-hook 'org-indent-mode)
-	(add-hook 'org-mode-hook
-						'(lambda ()
-							 (visual-line-mode 1))))
+  :config
+  (add-hook 'org-mode-hook 'org-indent-mode)
+  (add-hook 'org-mode-hook
+            '(lambda ()
+               (visual-line-mode 1))))
 (use-package org-indent
-	:diminish org-indent-mode)
+  :diminish org-indent-mode)
 
 ;; org-temp <s source block
 (require 'org-tempo)
 
 ;; more todo options
 (setq org-todo-keywords
-	 '((sequence "RADIANCE" "DEMONS" "FUCK IT!" "|" "GG EZ!" "CONGRATULATIONS")))
+   '((sequence "RADIANCE" "DEMONS" "FUCK IT!" "|" "GG EZ!" "CONGRATULATIONS")))
 
 ;; logging time
 (setq org-log-done 'time)
@@ -154,12 +156,34 @@
 
 ;; agenda files
 (setq org-agenda-files (list "~/darkness"
-														 "~/insanity"
-														 "~/murder"))
+                             "~/insanity"
+                             "~/murder"))
+
+;; load org files
+(find-file "~/.config/emacs/config.org")
+(find-file "~/.config/emacs/diary")
+(find-file "~/darkness/git.org")
+(find-file "~/darkness/js.org")
+(find-file "~/darkness/html.org")
+(find-file "~/darkness/java.org")
+(find-file "~/darkness/md.org")
+(find-file "~/darkness/se.org")
+(find-file "~/insanity/bash.org")
+(find-file "~/insanity/church.org")
+(find-file "~/insanity/evil.org")
+(find-file "~/insanity/lunix.org")
+(find-file "~/insanity/tex.org")
+(find-file "~/murder/dreams.org")
+(find-file "~/murder/pure.org")
+(find-file "~/murder/soul.org")
+(find-file "~/murder/survivor.org")
 
 ;; adding my email when mailing
 (setq mail-default-headers
-	"From: sunlesskelv@gmail.com")
+  "From: sunlesskelv@gmail.com")
+;; why not personal information
+(setq user-full-name "Sunless Kelv"
+      user-mail-address "sunlesskelv@gmail.com")
 
 (use-package catppuccin-theme
   :ensure t

@@ -7,4 +7,4 @@
 songs=$(find * | fzf)
 
 # mpv
-mpv --terminal=no --loop=inf "${songs}" &
+mpv --terminal=no --loop-playlist=inf "${songs}" &

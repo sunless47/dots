@@ -3,13 +3,15 @@ alias grep='grep --color=auto'
 alias ls='ls -XA --format=single-column -1 --color=auto'
 alias ll='ls -XAgoh --color=auto'
 alias l='source ~/.bashrc; clear'
+alias g='ollama run dolphin-mistral'
 
 # critical
 alias w="swww init; swww img /home/sunless/alchemy/arch/ecl.jpg; clear"
-alias dot="/usr/bin/git --git-dir=$HOME/alchemy/arch/dotbare/ --work-tree=$HOME"
+alias dot="/usr/bin/git --git-dir=$HOME/alchemy/stash/dotbare/ --work-tree=$HOME"
 
 # pacman
 alias i="sudo pacman -S"
 
 # downloads
 alias ms="yt-dlp -xciw -f "bestaudio/best" --audio-quality 0 --audio-format mp3 --embed-thumbnail"
+alias rp="rg --files --hidden --follow --no-ignore-vcs -g "!{node_modules,.git}" | fzf"
