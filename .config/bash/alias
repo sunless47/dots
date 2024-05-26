@@ -1,12 +1,12 @@
 # system
 alias grep='grep --color=auto'
-alias ls='ls -XA --format=single-column -1 --color=auto'
-alias ll='ls -XAgoh --color=auto'
+alias ls='exa -1A'
+alias ll='exa -Al'
 alias l='source ~/.bashrc; clear'
-alias g='ollama run dolphin-mistral'
+alias g='ollama run dolphin-phi'
 
 # critical
-alias w="swww init; swww img /home/sunless/alchemy/arch/ecl.jpg; clear"
+alias w="swww init; swww img /home/sunless/alchemy/stash/ecl.jpg; clear"
 alias dot="/usr/bin/git --git-dir=$HOME/alchemy/stash/dotbare/ --work-tree=$HOME"
 
 # pacman

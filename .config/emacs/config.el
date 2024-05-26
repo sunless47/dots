@@ -22,8 +22,8 @@
 
 (setq ring-bell-function 'ignore)
 
-(set-frame-parameter nil 'alpha-background 40)
-(add-to-list 'default-frame-alist '(alpha-background . 40))
+(set-frame-parameter nil 'alpha-background 20)
+(add-to-list 'default-frame-alist '(alpha-background . 20))
 
 (setq-default tab-width 2)
 (setq-default standard-indent 2)
@@ -69,6 +69,70 @@
 (global-set-key "\M-p" 'previous-buffer)
 
 (setq confirm-kill-processes nil)
+
+;; idk, indenting?
+(use-package org
+  :config
+  (add-hook 'org-mode-hook 'org-indent-mode)
+  (add-hook 'org-mode-hook
+            '(lambda ()
+               (visual-line-mode 1))))
+(use-package org-indent
+  :diminish org-indent-mode)
+
+;; export numbers
+;;(setq org-export-with-section-numbers nil)
+
+;; org-temp <s source block
+(require 'org-tempo)
+
+;; more todo options
+(setq org-todo-keywords
+   '((sequence "RADIANCE" "DEMONS" "FUCK IT!" "|" "GG EZ!" "CONGRATULATIONS")))
+
+;; logging time
+(setq org-log-done 'time)
+
+;; entries from diary
+(setq org-agenda-include-diary t)
+
+;; agenda files
+(setq org-agenda-files (list "~/darkness"
+                             "~/insanity"
+                             "~/murder"))
+
+
+;; adding my email when mailing
+(setq mail-default-headers
+  "From: sunlesskelv@gmail.com")
+;; why not personal information
+(setq user-full-name "Sunless"
+      user-mail-address "sunlesskelv@gmail.com")
+
+;; message
+(defun display-startup-echo-area-message ()
+  (message " "))
+
+;; load org files
+(find-file "~/.config/emacs/config.org")
+(find-file "~/.config/emacs/diary")
+(find-file "~/darkness/git.org")
+(find-file "~/darkness/js.org")
+(find-file "~/darkness/html.org")
+(find-file "~/darkness/java.org")
+(find-file "~/darkness/md.org")
+(find-file "~/darkness/se.org")
+(find-file "~/darkness/css.org")
+(find-file "~/darkness/meriola.org")
+(find-file "~/insanity/bash.org")
+(find-file "~/insanity/church.org")
+(find-file "~/insanity/evil.org")
+(find-file "~/insanity/lunix.org")
+(find-file "~/insanity/tex.org")
+(find-file "~/murder/dreams.org")
+(find-file "~/murder/pure.org")
+(find-file "~/murder/soul.org")
+(find-file "~/murder/survivor.org")
 
 (defvar elpaca-installer-version 0.7)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
@@ -131,60 +195,6 @@
 ;;Note this will cause the declaration to be interpreted immediately (not deferred).
 ;;Useful for configuring built-in emacs features.
 
-;; idk, indenting?
-(use-package org
-  :config
-  (add-hook 'org-mode-hook 'org-indent-mode)
-  (add-hook 'org-mode-hook
-            '(lambda ()
-               (visual-line-mode 1))))
-(use-package org-indent
-  :diminish org-indent-mode)
-
-;; org-temp <s source block
-(require 'org-tempo)
-
-;; more todo options
-(setq org-todo-keywords
-   '((sequence "RADIANCE" "DEMONS" "FUCK IT!" "|" "GG EZ!" "CONGRATULATIONS")))
-
-;; logging time
-(setq org-log-done 'time)
-
-;; entries from diary
-(setq org-agenda-include-diary t)
-
-;; agenda files
-(setq org-agenda-files (list "~/darkness"
-                             "~/insanity"
-                             "~/murder"))
-
-;; load org files
-(find-file "~/.config/emacs/config.org")
-(find-file "~/.config/emacs/diary")
-(find-file "~/darkness/git.org")
-(find-file "~/darkness/js.org")
-(find-file "~/darkness/html.org")
-(find-file "~/darkness/java.org")
-(find-file "~/darkness/md.org")
-(find-file "~/darkness/se.org")
-(find-file "~/insanity/bash.org")
-(find-file "~/insanity/church.org")
-(find-file "~/insanity/evil.org")
-(find-file "~/insanity/lunix.org")
-(find-file "~/insanity/tex.org")
-(find-file "~/murder/dreams.org")
-(find-file "~/murder/pure.org")
-(find-file "~/murder/soul.org")
-(find-file "~/murder/survivor.org")
-
-;; adding my email when mailing
-(setq mail-default-headers
-  "From: sunlesskelv@gmail.com")
-;; why not personal information
-(setq user-full-name "Sunless Kelv"
-      user-mail-address "sunlesskelv@gmail.com")
-
 (use-package catppuccin-theme
   :ensure t
   :init
@@ -216,7 +226,7 @@
     (interactive)
     (let ((name (concat "vterm://" (buffer-name))))
       (vterm (current-buffer))))
-  (global-set-key (kbd "s-t") 'tm)
+  (global-set-key (kbd "s-o") 'tm)
 
 (use-package sudoku
   :ensure t)
@@ -284,6 +294,7 @@
                                    ("https://www.reddit.com/r/Privacy.rss")
                                    ("https://www.reddit.com/r/Cyberpunk.rss")
                                    ("https://www.reddit.com/r/Technology.rss")
+                                   ("https://www.reddit.com/r/dotfiles.rss")
 
                                    ;; web
                                    ("https://www.reddit.com/r/WebDev.rss")
@@ -309,6 +320,7 @@
                                    ("https://www.reddit.com/r/ubuntu.rss")
                                    ("https://www.reddit.com/r/debian.rss")
                                    ("https://www.reddit.com/r/gentoo.rss")
+                                   ("https://www.reddit.com/r/piracy.rss")
                                    ("https://www.reddit.com/r/archlinux.rss")
 
                                    ;; tech
@@ -322,14 +334,28 @@
                                    ("https://morss.it/https://www.wired.com/feed/category/security/latest/rss")
                                    ("https://morss.it/https://www.wired.com/feed/category/ideas/latest/rss")
                                    ("https://morss.it/feeds.mashable.com/mashable")
+                                   ("https://morss.it/feeds.feedburner.com/hackaday")
                                    ("https://morss.it/feeds.mashable.com/mashable/tech")
-                                   ("https://morss.it/feeds.mashable.com/mashable/entertainment")
+                                   ("https://morss.it/https://gizmodo.com/tag/diy/rss")        ("https://morss.it/feeds.mashable.com/mashable/entertainment")
                                    ("https://morss.it/rss.cnn.com/rss/edition_world.rss")
                                    ("https://morss.it/rss.cnn.com/rss/edition_africa.rss")
-                                   ;; news
+                                   ("https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml")
+
+                                   ("https://morss.it/https://feeds.feedburner.com/TechCrunch/Twitter")
                                    ("https://morss.it/https://feeds.bbci.co.uk/news/world/rss.xml")
                                    ("https://morss.it/https://feeds.bbci.co.uk/news/technology/rss.xml")
+                                   ("https://morss.it/https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml")
+                                   ("https://morss.it/https://rss.nytimes.com/services/xml/rss/nyt/World.xml")
 
+                                   ("https://morss.it/https://www.theguardian.com/uk/rss")
+                                   ("https://morss.it/https://www.theguardian.com/world/rss")
+                                   ("https://morss.it/https://www.theguardian.com/us-news/rss")
+                                   ("https://morss.it/https://www.theguardian.com/world/africa/rss")
+                                   ("https://morss.it/https://www.theguardian.com/uk/technology/rss")
+                                   ("https://morss.it/https://www.theguardian.com/books/rss")
+                                   ("https://morss.it/https://www.theguardian.com/music/rss")
+                                   ("https://morss.it/https://www.theguardian.com/crosswords/rss")
+                                   ("https://morss.it/https://www.theguardian.com/games/rss")
                                    ;; games
                                    ("https://morss.it/https://kotaku.com/rss")
                                    ("https://morss.it/https://www.polygon.com/rss/index.xml")
