@@ -88,7 +88,7 @@
 
 ;; more todo options
 (setq org-todo-keywords
-   '((sequence "RADIANCE" "DEMONS" "FUCK IT!" "|" "GG EZ!" "CONGRATULATIONS")))
+   '((sequence "ECLIPSE" "RADIANCE" "TINKER" "|" "HORIZON")))
 
 ;; logging time
 (setq org-log-done 'time)
@@ -121,7 +121,7 @@
 (find-file "~/darkness/html.org")
 (find-file "~/darkness/java.org")
 (find-file "~/darkness/md.org")
-(find-file "~/darkness/se.org")
+(find-file "~/darkness/code.org")
 (find-file "~/darkness/css.org")
 (find-file "~/darkness/meriola.org")
 (find-file "~/insanity/bash.org")
@@ -133,6 +133,13 @@
 (find-file "~/murder/pure.org")
 (find-file "~/murder/soul.org")
 (find-file "~/murder/survivor.org")
+(find-file "~/murder/world.org")
+
+(put 'dired-find-alternate-file 'disabled nil)
+(add-hook 'dired-mode-hook
+        (lambda ()
+          (define-key dired-mode-map (kbd "^")
+                      (lambda () (interactive) (find-alternate-file "..")))))
 
 (defvar elpaca-installer-version 0.7)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))

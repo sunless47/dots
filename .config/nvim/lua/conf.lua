@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 
 -- opt looks good
 local opt = vim.opt
+local key = vim.keymap
 
 -- tabs and indentation
 opt.tabstop = 2
@@ -13,9 +14,6 @@ opt.autoindent = true
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
-
--- search settings
-opt.cursorline = true
 
 -- status line
 opt.laststatus = 0
@@ -37,3 +35,11 @@ opt.hlsearch = false
 
 -- spell checking
 opt.spell = true
+opt.spelllang = "en_us"
+
+-- wrap lines
+key.set("n", "j", "gj")
+key.set("n", "k", "gk")
+
+-- neotree
+key.set("n", "<leader>e", "<cmd>Neotree toggle<cr>")

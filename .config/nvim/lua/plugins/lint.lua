@@ -22,6 +22,10 @@ return {
 		},
 	},
 	{
+		"mfussenegger/nvim-jdtls",
+		ft = "java",
+	},
+	{
 		"mfussenegger/nvim-lint",
 		event = {
 			"BufReadPre",

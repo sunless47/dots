@@ -11,22 +11,19 @@ return {
 	-- C-w hjkl or this
 	"christoomey/vim-tmux-navigator",
 
+	-- fix error
+	"nvim-lua/plenary.nvim",
+
 	-- comments
 	"preservim/nerdcommenter",
 
 	-- netrw replacer
 	"nvim-neo-tree/neo-tree.nvim",
 
-	{ -- nice theme
+	{ -- theme
 		"catppuccin/nvim",
+		name = "catppuccin",
 		priority = 1000,
-		init = function()
-			vim.cmd([[
-      colorscheme catppuccin-mocha
-			highlight Normal guibg=NONE
-			highlight CursorLine guibg=NONE
-      ]])
-		end,
 	},
 
 	{ -- must have esp for web development
@@ -41,7 +38,7 @@ return {
 	{ -- something about closing brackets, check its docs
 		"kylechui/nvim-surround",
 		event = { "BufReadPre", "BufNewFile" },
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		version = "*",
 		config = true,
 	},
 }

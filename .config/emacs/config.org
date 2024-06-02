@@ -149,7 +149,7 @@
 
   ;; more todo options
   (setq org-todo-keywords
-     '((sequence "RADIANCE" "DEMONS" "FUCK IT!" "|" "GG EZ!" "CONGRATULATIONS")))
+     '((sequence "ECLIPSE" "RADIANCE" "TINKER" "|" "HORIZON")))
 
   ;; logging time
   (setq org-log-done 'time)
@@ -172,30 +172,39 @@
 #+END_SRC
 ** startup
 #+begin_src emacs-lisp
-    ;; message
-    (defun display-startup-echo-area-message ()
-      (message " "))
+  ;; message
+  (defun display-startup-echo-area-message ()
+    (message " "))
 
-    ;; load org files
-    (find-file "~/.config/emacs/config.org")
-    (find-file "~/.config/emacs/diary")
-    (find-file "~/darkness/git.org")
-    (find-file "~/darkness/js.org")
-    (find-file "~/darkness/html.org")
-    (find-file "~/darkness/java.org")
-    (find-file "~/darkness/md.org")
-    (find-file "~/darkness/se.org")
-    (find-file "~/darkness/css.org")
-    (find-file "~/darkness/meriola.org")
-    (find-file "~/insanity/bash.org")
-    (find-file "~/insanity/church.org")
-    (find-file "~/insanity/evil.org")
-    (find-file "~/insanity/lunix.org")
-    (find-file "~/insanity/tex.org")
-    (find-file "~/murder/dreams.org")
-    (find-file "~/murder/pure.org")
-    (find-file "~/murder/soul.org")
-    (find-file "~/murder/survivor.org")
+  ;; load org files
+  (find-file "~/.config/emacs/config.org")
+  (find-file "~/.config/emacs/diary")
+  (find-file "~/darkness/git.org")
+  (find-file "~/darkness/js.org")
+  (find-file "~/darkness/html.org")
+  (find-file "~/darkness/java.org")
+  (find-file "~/darkness/md.org")
+  (find-file "~/darkness/code.org")
+  (find-file "~/darkness/css.org")
+  (find-file "~/darkness/meriola.org")
+  (find-file "~/insanity/bash.org")
+  (find-file "~/insanity/church.org")
+  (find-file "~/insanity/evil.org")
+  (find-file "~/insanity/lunix.org")
+  (find-file "~/insanity/tex.org")
+  (find-file "~/murder/dreams.org")
+  (find-file "~/murder/pure.org")
+  (find-file "~/murder/soul.org")
+  (find-file "~/murder/survivor.org")
+  (find-file "~/murder/world.org")
+#+end_src
+** dired buffers
+#+begin_src emacs-lisp
+  (put 'dired-find-alternate-file 'disabled nil)
+  (add-hook 'dired-mode-hook
+          (lambda ()
+            (define-key dired-mode-map (kbd "^")
+                        (lambda () (interactive) (find-alternate-file "..")))))
 #+end_src
 * Packages
 ** sourcing elpaca
