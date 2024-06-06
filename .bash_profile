@@ -6,6 +6,3 @@ export QT_QPA_PLATFORMTHEME="qt6ct"
 
 # startup
 Hyprland
-
-# MPD daemon start (if no other user instance exists)
-[ ! -s ~/.config/mpd/pid ] && mpd

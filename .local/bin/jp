@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#===========================#
+# Java + springboot project #
+#===========================#
+spring init \
+  --build 'maven' \
+  --version '3.3.1(SNAPSHOT)' \
+  --group-id 'calculator' \
+  --artifact-id 'app' \
+  --name 'app' \
+  --description 'Calculator app project for Spring Boot' \
+  --package-name 'calculator.app' \
+  --packaging 'jar' \
+  --java-version '22' \
+  --dependencies 'web,lombok' \
+  --extract

@@ -22,10 +22,6 @@ return {
 		},
 	},
 	{
-		"mfussenegger/nvim-jdtls",
-		ft = "java",
-	},
-	{
 		"mfussenegger/nvim-lint",
 		event = {
 			"BufReadPre",
@@ -36,28 +32,22 @@ return {
 
 			lint.linters_by_ft = {
 				-- other languages
-				bash = { "shellcheck", "shellharden" },
-				markdown = { "markdownlint" },
+				-- bash = { "shellcheck" },
+				-- markdown = { "markdownlint" },
 
 				-- web dev languages
-				html = { "htmlhint", "markuplint" },
-				css = { "stylelint" },
-				json = { "jsonlint" },
-				javascript = { "quick-lint-js", "eslint_d", "standardjs" },
-				typescript = { "quick-lint-js", "eslint_d", "ts-standard" },
-				javascriptreact = { "eslint_d" },
-				typescriptreact = { "eslint_d" },
+				-- html = { "htmlhint" },
+				-- css = { "stylelint" },
+				-- json = { "jsonlint" },
+				-- javascript = { "quick-lint-js" },
+				-- typescript = { "quick-lint-js" },
+				-- javascriptreact = { "eslint_d" },
+				-- typescriptreact = { "eslint_d" },
 
 				-- programming languages
 				java = { "checkstyle" },
-				lua = { "luacheck" },
-				python = { "pylint" },
-				django = { "djlint" },
-				go = { "golangci-lint" },
-				c = { "cpplint" },
-				cpp = { "cpplint" },
-				rust = { "cpptools" },
-				sql = { "sqlfluff" },
+				-- lua = { "luacheck" },
+				-- sql = { "sqlfluff" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

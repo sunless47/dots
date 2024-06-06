@@ -1,6 +1,16 @@
 [window]
 opacity = 0.5
 
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+   { key = "Return", mods = "Control", action = "SpawnNewInstance" },
+   { key = "PageUp", action = "ScrollLineUp" },
+   { key = "PageDown", action = "ScrollLineDown" }
+]
+
 [font]
 normal = {family = "JetBrainsMonoNerdFontMono", style = "Regular"}
 bold = {family = "JetBrainsMonoNerdFontMono", style = "Bold"}

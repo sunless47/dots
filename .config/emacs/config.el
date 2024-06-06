@@ -88,7 +88,7 @@
 
 ;; more todo options
 (setq org-todo-keywords
-   '((sequence "ECLIPSE" "RADIANCE" "TINKER" "|" "HORIZON")))
+   '((sequence "APOCALYPSE" "DOOM" "ECLIPSE" "|" "HORIZON")))
 
 ;; logging time
 (setq org-log-done 'time)

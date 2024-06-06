@@ -4,7 +4,7 @@
 #========================#
 
 # print music genres with tofi
-music=$(printf "%s\n" "night" "automata" "doki" "doom" "lilies" "souls" | tofi --height=40% --prompt-text="Music ")
+music=$(printf "%s\n" "night" "favela" "automata" "doki" "doom" "hollow" "souls" | tofi --height=40% --prompt-text="Music ")
 
 # assigning music player to a variable
 play="mpv --no-terminal --shuffle --loop-playlist --playlist=/home/sunless/silence/"
@@ -12,28 +12,32 @@ play="mpv --no-terminal --shuffle --loop-playlist --playlist=/home/sunless/silen
 # play selected music
 case ${music} in
 
-  automata)
-    ${play}${music} &
+automata)
+  ${play}${music} &
   ;;
 
-  doki)
-    ${play}${music} &
+doki)
+  ${play}${music} &
   ;;
 
-  doom)
-    ${play}${music} &
+doom)
+  ${play}${music} &
   ;;
 
-  lilies)
-    ${play}${music} &
+hollow)
+  ${play}${music} &
   ;;
 
-  night)
-    ${play}${music} &
+night)
+  ${play}${music} &
   ;;
 
-  souls)
-    ${play}${music} &
+souls)
+  ${play}${music} &
+  ;;
+
+favela)
+  ${play}${music} &
   ;;
 
 esac
