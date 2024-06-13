@@ -2,17 +2,21 @@
 #================#
 # arch wiki docs #
 #================#
+arch-docs() {
+  # arch docs directory
+  dire=/usr/share/doc/arch-wiki/html/en/
 
-# arch docs directory
-dire=/usr/share/doc/arch-wiki/html/en/
+  # selecting with fzf
+  doc=$(find ${dire}*.html -type f | awk -F / '{print $8}' | fzf)
 
-# selecting with fzf
-doc=$(find ${dire}*.html -type f | awk -F / '{print $8}' | fzf)
+  # stop if no input
+  if [[ -z $doc ]]; then
+    exit
+  fi
 
-# stop if no input
-if [[ -z $doc ]]; then
-  exit
-fi
+  # opening with qutebrowser
+  qutebrowser ${dire}${doc} 2> /dev/null & 
+}
 
-# opening with qutebrowser
-qutebrowser ${dire}${doc} 2> /dev/null & 
+# calling function
+arch-docs

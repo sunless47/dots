@@ -86,23 +86,8 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			function(PowerShellEditorServices)
-				lspconfig[PowerShellEditorServices].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(powershell_es)
-				lspconfig[powershell_es].setup({
-					capabilities = capabilities,
-				})
-			end,
 			function(marksman)
 				lspconfig[marksman].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(sumneko_lua)
-				lspconfig[sumneko_lua].setup({
 					capabilities = capabilities,
 				})
 			end,
@@ -110,6 +95,11 @@ return {
 			-- web dev
 			function(html)
 				lspconfig[html].setup({
+					capabilities = capabilities,
+				})
+			end,
+			function(angularls)
+				lspconfig[angularls].setup({
 					capabilities = capabilities,
 				})
 			end,
@@ -128,11 +118,6 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			function(tailwindcss)
-				lspconfig[tailwindcss].setup({
-					capabilities = capabilities,
-				})
-			end,
 			function(tsserver)
 				lspconfig[tsserver].setup({
 					capabilities = capabilities,
@@ -145,11 +130,6 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			function(ccls)
-				lspconfig[ccls].setup({
-					capabilities = capabilities,
-				})
-			end,
 			function(pyright)
 				lspconfig[pyright].setup({
 					capabilities = capabilities,
@@ -157,46 +137,6 @@ return {
 			end,
 			function(sqlls)
 				lspconfig[sqlls].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(sqls)
-				lspconfig[sqls].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(rust_analyzer)
-				lspconfig[rust_analyzer].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(clangd)
-				lspconfig[clangd].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(csharpls)
-				lspconfig[csharpls].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(dotnetcsharpier)
-				lspconfig[dotnetcsharpier].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(omnisharp)
-				lspconfig[omnisharp].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(groovyls)
-				lspconfig[groovyls].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(jdtls)
-				lspconfig[jdtls].setup({
 					capabilities = capabilities,
 				})
 			end,

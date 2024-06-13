@@ -2,15 +2,19 @@
 #========================#
 # bash configs navigator #
 #========================#
+bash-config() {
+  # target all bash configs
+  conf=( "$HOME/.config/bash/alias"\ 
+    "$HOME/.config/bash/conf"\ 
+    "$HOME/.bashrc"\ 
+    "$HOME/.bash_profile"\ 
+    "/etc/bash.bashrc")
 
-# target all bash configs
-conf=( "$HOME/.config/bash/alias"\ 
-  "$HOME/.config/bash/conf"\ 
-  "$HOME/.bashrc"\ 
-  "$HOME/.bash_profile"\ 
-  "/etc/bash.bashrc")
+  # list everything and open with emacs
+  find ${conf[@]} | \
+  fzf --multi --keep-right --preview 'bat {}' | \
+  xargs -ro nvim
+}
 
-# list everything and open with emacs
-find ${conf[@]} | \
-fzf --multi --keep-right --preview 'bat {}' | \
-xargs -ro nvim
+# calling function
+bash-config

@@ -32,5 +32,6 @@ hell() {
   # opening with zathura
   zathura ${dire}/${topic}/"${book}" 2> /dev/null &
 }
+
 # calling function
 hell

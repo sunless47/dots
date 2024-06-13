@@ -17,8 +17,13 @@ return {
 	-- comments
 	"preservim/nerdcommenter",
 
-	-- netrw replacer
-	"nvim-neo-tree/neo-tree.nvim",
+	-- neotree replacer
+  "nvim-neo-tree/neo-tree.nvim",
+
+  -- neotree dependecies
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
 
 	{ -- theme
 		"catppuccin/nvim",

@@ -32,22 +32,17 @@ return {
 
 			lint.linters_by_ft = {
 				-- other languages
-				-- bash = { "shellcheck" },
-				-- markdown = { "markdownlint" },
+				bash = { "shellharden" },
 
 				-- web dev languages
-				-- html = { "htmlhint" },
-				-- css = { "stylelint" },
-				-- json = { "jsonlint" },
-				-- javascript = { "quick-lint-js" },
-				-- typescript = { "quick-lint-js" },
-				-- javascriptreact = { "eslint_d" },
-				-- typescriptreact = { "eslint_d" },
+				html = { "htmlhint" },
+				css = { "stylelint" },
+				json = { "jsonlint" },
+				javascript = { "quick-lint-js" },
+				typescript = { "quick-lint-js" },
 
 				-- programming languages
 				java = { "checkstyle" },
-				-- lua = { "luacheck" },
-				-- sql = { "sqlfluff" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

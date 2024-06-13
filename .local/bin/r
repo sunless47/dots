@@ -2,29 +2,33 @@
 #==========================#
 # files and folder deleter #
 #==========================#
+multiple-files-deleter() {
+  ## old too-ez style (takes .4s)
+  # list everything
+  exa --almost-all | \
+  fzf --multi | \
+  xargs --open-tty --no-run-if-empty --verbose /bin/rm -I  --verbose --recursive
 
-## old too-ez style (takes .4s)
-# list everything
-exa --almost-all | \
-fzf --multi | \
-xargs --open-tty --no-run-if-empty --verbose /bin/rm -I  --verbose --recursive
+  # new fun style (takes .6s)
+  #list everything in the directory and quotes it
+  #quotedLs(){
+  #  for i in *
+  #  do
+  #    printf "\"%s\"\n" "$i"
+  #  done
+  #
+  #  # those sneaky dot files
+  #  for d in .*
+  #  do
+  #    printf "\"%s\"\n" "$d"
+  #  done
+  #}
 
-# new fun style (takes .6s)
-#list everything in the directory and quotes it
-#quotedLs(){
-#  for i in *
-#  do
-#    printf "\"%s\"\n" "$i"
-#  done
-#
-#  # those sneaky dot files
-#  for d in .*
-#  do
-#    printf "\"%s\"\n" "$d"
-#  done
-#}
+  #calling the function, into fzf, then rm
+  #quotedLs | \
+  #fzf --multi | \
+  #xargs --open-tty --no-run-if-empty --verbose /bin/rm -I  --verbose --recursive
+}
 
-#calling the function, into fzf, then rm
-#quotedLs | \
-#fzf --multi | \
-#xargs --open-tty --no-run-if-empty --verbose /bin/rm -I  --verbose --recursive
+# calling function
+multiple-files-deleter

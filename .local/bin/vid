@@ -2,9 +2,13 @@
 #===================-===============#
 # play specific video in the folder #
 #===================================#
+play-vid() {
+  # list everything with fzf
+  video=$(find *.mkv *.mp4 *.webm 2> /dev/null | fzf)
 
-# list everything with fzf
-video=$(find *.mkv *.mp4 *.webm 2> /dev/null | fzf)
+  # mpv
+  mpv --speed=2 --terminal=no "${video}" &
+}
 
-# mpv
-mpv --speed=2 --terminal=no "${video}" &
+# calling function
+play-vid
