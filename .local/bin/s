@@ -2,7 +2,6 @@
 #==============#
 # edit scripts #
 #==============#
-scripts() {
   # target directory
   dire="$HOME/.local/bin"
 
@@ -20,7 +19,3 @@ scripts() {
 
   # open with nvim
   nvim "${dire}/${script}"
-}
-
-# calling function
-script

@@ -1,22 +1,8 @@
 #!/usr/bin/env bash
-#================#
-# arch wiki docs #
-#================#
-arch-docs() {
-  # arch docs directory
-  dire=/usr/share/doc/arch-wiki/html/en/
+#==============#
+# offline wiki #
+#==============#
 
-  # selecting with fzf
-  doc=$(find ${dire}*.html -type f | awk -F / '{print $8}' | fzf)
-
-  # stop if no input
-  if [[ -z $doc ]]; then
-    exit
-  fi
-
-  # opening with qutebrowser
-  qutebrowser ${dire}${doc} 2> /dev/null & 
-}
-
-# calling function
-arch-docs
+# wiki's directory
+kiwix-serve --daemon --port 1313 ~/wiki/*.zim 2> /dev/null
+qutebrowser http://127.0.0.1:1313 2> /dev/null &

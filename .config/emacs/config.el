@@ -345,14 +345,7 @@
                                    ("https://morss.it/feeds.mashable.com/mashable/tech")
                                    ("https://morss.it/https://gizmodo.com/tag/diy/rss")        ("https://morss.it/feeds.mashable.com/mashable/entertainment")
                                    ("https://morss.it/rss.cnn.com/rss/edition_world.rss")
-                                   ("https://morss.it/rss.cnn.com/rss/edition_africa.rss")
-                                   ("https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml")
-
                                    ("https://morss.it/https://feeds.feedburner.com/TechCrunch/Twitter")
-                                   ("https://morss.it/https://feeds.bbci.co.uk/news/world/rss.xml")
-                                   ("https://morss.it/https://feeds.bbci.co.uk/news/technology/rss.xml")
-                                   ("https://morss.it/https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml")
-                                   ("https://morss.it/https://rss.nytimes.com/services/xml/rss/nyt/World.xml")
 
                                    ("https://morss.it/https://www.theguardian.com/uk/rss")
                                    ("https://morss.it/https://www.theguardian.com/world/rss")

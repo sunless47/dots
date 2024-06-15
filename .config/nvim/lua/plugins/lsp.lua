@@ -98,8 +98,8 @@ return {
 					capabilities = capabilities,
 				})
 			end,
-			function(angularls)
-				lspconfig[angularls].setup({
+			function(ngserver)
+				lspconfig[ngserver].setup({
 					capabilities = capabilities,
 				})
 			end,
@@ -127,11 +127,6 @@ return {
 			-- programming languages
 			function(jdtls)
 				lspconfig[jdtls].setup({
-					capabilities = capabilities,
-				})
-			end,
-			function(pyright)
-				lspconfig[pyright].setup({
 					capabilities = capabilities,
 				})
 			end,
