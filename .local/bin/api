@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#============#
+# api tester #
+#============#
+api() {
+  # target link
+  link="http://localhost:8080/api/arithmetic/calculate"
+  # using curl to test
+  curl \
+    --header "Content-Type: application/json" \
+    --request POST \
+    --data '{"number1":4, "operator":"^", "number2":2}' \
+    "${link}"
+}
+
+# calling function
+api
+# ensure it goes to the next line
+echo ""

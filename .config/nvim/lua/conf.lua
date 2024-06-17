@@ -42,4 +42,4 @@ key.set("n", "j", "gj")
 key.set("n", "k", "gk")
 
 -- neotree
-key.set("n", "<leader>e", "<cmd>Neotree toggle<cr>")
+key.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
