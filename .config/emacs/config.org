@@ -149,7 +149,7 @@
 
   ;; more todo options
   (setq org-todo-keywords
-     '((sequence "APOCALYPSE" "DOOM" "ECLIPSE" "|" "HORIZON")))
+     '((sequence "APOCALYPSE" "DOOM" "ECLIPSE" "GIT RITUAL" "|" "HORIZON")))
 
   ;; logging time
   (setq org-log-done 'time)
@@ -187,14 +187,14 @@
   (find-file "~/darkness/code.org")
   (find-file "~/darkness/css.org")
   (find-file "~/darkness/meriola.org")
+  (find-file "~/darkness/angular.org")
+  (find-file "~/darkness/spring.org")
   (find-file "~/insanity/bash.org")
   (find-file "~/insanity/church.org")
   (find-file "~/insanity/evil.org")
   (find-file "~/insanity/lunix.org")
-  (find-file "~/insanity/tex.org")
   (find-file "~/murder/dreams.org")
   (find-file "~/murder/pure.org")
-  (find-file "~/murder/soul.org")
   (find-file "~/murder/survivor.org")
   (find-file "~/murder/world.org")
 #+end_src

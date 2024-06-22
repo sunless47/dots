@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 #===========================#
 # Java + springboot project #
+# mysql                     #
 #===========================#
 spring-initializer() {
   spring init \
     --build 'maven' \
     --version '3.3.1(SNAPSHOT)' \
-    --group-id 'calculator' \
+    --group-id 'database' \
     --artifact-id 'app' \
     --name 'app' \
-    --description 'Calculator app project for Spring Boot' \
-    --package-name 'calculator.app' \
+    --description 'Database project for Spring Boot' \
+    --package-name 'database.app' \
     --packaging 'jar' \
     --java-version '22' \
-    --dependencies 'web,lombok' \
+    --dependencies 'web,lombok,jpa,mariadb' \
     --extract
 }
 

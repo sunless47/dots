@@ -5,6 +5,8 @@ alias l='source ~/.bashrc; clear'
 alias dot='/usr/bin/git --git-dir=$HOME/alchemy/stash/dotbare/ --work-tree=$HOME'
 alias g='ollama run dolphin-mistral'
 
+# ranger
+alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 # critical
 alias w="swww init; swww img /home/sunless/alchemy/stash/ecl.jpg; clear"
 
