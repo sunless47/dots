@@ -88,10 +88,10 @@
 
 ;; more todo options
 (setq org-todo-keywords
-   '((sequence "APOCALYPSE" "DOOM" "ECLIPSE" "GIT RITUAL" "|" "HORIZON")))
+   '((sequence "APOCALYPSE" "DOOM" "CHORE" "DARK RITUAL")))
 
 ;; logging time
-(setq org-log-done 'time)
+;;  (setq org-log-done 'time)
 
 ;; entries from diary
 (setq org-agenda-include-diary t)
@@ -109,15 +109,17 @@
 (setq user-full-name "Sunless"
       user-mail-address "sunlesskelv@gmail.com")
 
+(set-face-attribute 'default nil :font "JetBrainsMonoNerdFontMono" )
+(set-frame-font "JetBrainsMonoNerdFontMono" nil t)
+
 ;; message
 (defun display-startup-echo-area-message ()
   (message " "))
-
 ;; load org files
 (find-file "~/.config/emacs/config.org")
-(find-file "~/.config/emacs/diary")
 (find-file "~/darkness/git.org")
 (find-file "~/darkness/js.org")
+(find-file "~/darkness/ts.org")
 (find-file "~/darkness/html.org")
 (find-file "~/darkness/java.org")
 (find-file "~/darkness/md.org")
@@ -126,14 +128,16 @@
 (find-file "~/darkness/meriola.org")
 (find-file "~/darkness/angular.org")
 (find-file "~/darkness/spring.org")
+(find-file "~/darkness/database.org")
+(find-file "~/darkness/container.org")
 (find-file "~/insanity/bash.org")
 (find-file "~/insanity/church.org")
 (find-file "~/insanity/evil.org")
 (find-file "~/insanity/lunix.org")
-(find-file "~/murder/dreams.org")
+(find-file "~/murder/desires.org")
 (find-file "~/murder/pure.org")
 (find-file "~/murder/survivor.org")
-(find-file "~/murder/world.org")
+(find-file "~/.config/emacs/diary")
 
 (put 'dired-find-alternate-file 'disabled nil)
 (add-hook 'dired-mode-hook
@@ -201,6 +205,10 @@
 ;;Turns off elpaca-use-package-mode current declaration
 ;;Note this will cause the declaration to be interpreted immediately (not deferred).
 ;;Useful for configuring built-in emacs features.
+
+(require 'package)
+   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
 (use-package catppuccin-theme
   :ensure t

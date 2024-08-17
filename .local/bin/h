@@ -8,7 +8,7 @@ hell() {
 
   # selecting topic
   topic=$( \
-    find ${dire} -type d | \
+    find ${dire}/* -type d | \
     awk -F / '{print $5}' | \
     fzf \
   )
@@ -19,7 +19,8 @@ hell() {
   fi
 
   # selecting book
-  book=$(find ${dire}/${topic} -type f | \
+  book=$( \
+    find ${dire}/${topic} -type f | \
     awk -F / '{print $6}' | \
     fzf \
   )

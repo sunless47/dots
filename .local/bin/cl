@@ -2,4 +2,8 @@
 #============#
 # arch clean #
 #============#
-pacman -Sc
+clean(){
+  sudo paccache -r
+  sudo pacman -Scc
+}
+clean

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#===========#
+# quick fix #
+#===========#
+quick-fix() {
+  echo "hi"
+}
+
+# calling function
+quick-fix

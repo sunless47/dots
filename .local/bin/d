@@ -3,6 +3,13 @@
 # offline wiki #
 #==============#
 
+arch-docs() {
 # wiki's directory
-kiwix-serve --daemon --port 1313 ~/wiki/*.zim 2> /dev/null
-qutebrowser http://127.0.0.1:1313 2> /dev/null &
+  dire=/usr/share/doc/a
+  topic=$( \
+    find ${dire}/* -type d | \
+    awk -F / '{print $5}' | \
+    fzf \
+  )
+
+}
