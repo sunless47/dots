@@ -2,14 +2,20 @@
 #==============#
 # offline wiki #
 #==============#
-
 arch-docs() {
-# wiki's directory
-  dire=/usr/share/doc/a
-  topic=$( \
-    find ${dire}/* -type d | \
-    awk -F / '{print $5}' | \
-    fzf \
-  )
+  # arch docs directory
+  dire=/usr/share/doc/arch-wiki/html/en/
 
+  # selecting with fzf
+  doc=$(find ${dire}*.html -type f | awk -F / '{print $8}' | fzf)
+
+  # stop if no input
+  if [[ -z $doc ]]; then
+    exit
+  fi
+  # opening with qutebrowser
+  qutebrowser ${dire}${doc} 2> /dev/null & 
 }
+
+# calling function
+arch-docs
