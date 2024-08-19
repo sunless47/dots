@@ -31,3 +31,8 @@ export FZF_ALT_C_COMMAND="fd --type d --hidden --follow . "
 
 # autocd from arch wiki
 shopt -s autocd
+
+# tmux
+if [ ! -z $TMUX ]; then
+  source ~/.bashrc
+fi

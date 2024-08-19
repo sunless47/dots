@@ -2,17 +2,27 @@
 #==============#
 # offline wiki #
 #==============#
+
+# error handling
+set -euo pipefail
+
+# choose arch docs in local system
 arch-docs() {
   # arch docs directory
   dire=/usr/share/doc/arch-wiki/html/en/
 
   # selecting with fzf
-  doc=$(find ${dire}*.html -type f | awk -F / '{print $8}' | fzf)
+  doc=$( \
+    find ${dire}*.html -type f | \
+    awk -F / '{print $8}' | \
+    fzf \
+  )
 
   # stop if no input
   if [[ -z $doc ]]; then
     exit
   fi
+
   # opening with qutebrowser
   qutebrowser ${dire}${doc} 2> /dev/null & 
 }

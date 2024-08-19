@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#========#
+# yt-dlp #
+#========#
+
+# error handling
+set -euo pipefail
+
+# download with yt-dlp
+yt-dlp -S res:480 $1

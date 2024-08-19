@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#====================#
+# springboot project #
+#====================#
+
+# error handling
+set -euo pipefail
+
+# initialize with springboot cli
+spring-initializer() {
+  spring init \
+    --build 'maven' \
+    --version '3.3.1(SNAPSHOT)' \
+    --group-id 'database' \
+    --artifact-id 'app' \
+    --name 'app' \
+    --description 'Database project for Spring Boot' \
+    --package-name 'database.app' \
+    --packaging 'jar' \
+    --java-version '17' \
+    --dependencies 'web,lombok,jpa,mysql' \
+    --extract
+}
+
+# calling function
+spring-initializer

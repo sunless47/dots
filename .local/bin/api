@@ -2,34 +2,40 @@
 #============#
 # api tester #
 #============#
-angular-api() {
+ 
+# error handling
+set -euo pipefail
+
+# test api
+quick-api() {
   # target link
-  link="http://api.openweathermap.org/geo/1.0/direct?q=Nairobi&appid=463cc47a0f3d848c768c537253f9781a"
+  link=""
 
   # using curl to test
   curl \
     "${link}"
 }
 
-spring-boot-api() {
+# test api with different requests
+crud-api() {
   # target link
-  link="http://localhost:8080/api/arithmetic/calculate"
+  link=""
 
   # using curl to test
   curl \
     --header "Content-Type: application/json" \
     --request POST \
-    --data '{
-      "number1":4,
-      "operator":"^",
-      "number2":2
+    --json '{
+      "": ,
+      "": "",
+      "":
     }' \
     "${link}"
 }
 
 # calling function
-#spring-boot-api
-angular-api
+#quick-api
+#crud-api
 
 # hack to go to the next line
 echo ""

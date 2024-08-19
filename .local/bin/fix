@@ -2,9 +2,14 @@
 #===========#
 # quick fix #
 #===========#
-quick-fix() {
+
+# error handling
+set -euo pipefail
+
+# purpose
+fix() {
   echo "hi"
 }
 
 # calling function
-quick-fix
+fix

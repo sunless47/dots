@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#===========#
+# quick fix #
+#===========#
+
+# error handling
+set -euo pipefail
+
+# get fastest repositories
+get-repos() {
+  sudo reflector \
+    --protocol https \
+    --save /etc/pacman.d/mirrorlist \
+    --sort rate \
+    --latest 10 \
+    --country 'Kenya,Mauritius,South Africa'
+}
+
+# calling function
+get-repos

@@ -2,8 +2,15 @@
 #=============#
 # App Deleter #
 #=============#
+
+# error handling
+set -euo pipefail
+
+# app deleting function
 app-deleter(){
-  pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rnsu
+  pacman -Qq | \
+    fzf --multi --preview 'pacman -Qi {1}' | \
+    xargs -ro sudo pacman -Rnsu
 }
 
 # calling function

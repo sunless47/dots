@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#=====================#
+# use ai using docker #
+#=====================#
+
+# error handling
+set -euo pipefail
+
+# start ollama container
+llm() {
+  docker container start ollama
+  docker exec -it ollama /bin/bash
+}
+
+# calling function
+llm

@@ -2,10 +2,16 @@
 #==========================#
 # files and folder deleter #
 #==========================#
+
+# error handling
+set -euo pipefail
+
+# delete files and folders in the directory
 multiple-files-deleter() {
   exa --almost-all | \
   fzf --multi | \
-  xargs --open-tty --no-run-if-empty --verbose sudo /bin/rm -I  --verbose --recursive
+  xargs --open-tty --no-run-if-empty --verbose \
+  sudo /bin/rm -I  --verbose --recursive
 }
 
 # calling function

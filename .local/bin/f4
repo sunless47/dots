@@ -2,6 +2,11 @@
 #===========================#
 # shutdown prompt with tofi #
 #===========================#
+
+# error handling
+set -euo pipefail
+
+# shutdown or restart
 bye() {
   # print options
   fate=$(echo -e "Soul\nBody" | tofi --width=50% --height=20% --prompt-text="What are you willing to lose first?")

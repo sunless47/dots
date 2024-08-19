@@ -2,6 +2,11 @@
 #==================================#
 # read specific book in the folder #
 #==================================#
+
+# error handling
+set -euo pipefail
+
+# get specific book in the directory
 specific-book() {
   # list everything with fzf
   book=$(find *.epub *.pdf 2> /dev/null | fzf)

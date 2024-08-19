@@ -2,6 +2,11 @@
 #===================#
 # configs navigator #
 #===================#
+
+# error handling
+set -euo pipefail
+
+# select configs
 configs() {
   # target directory
   dire="$HOME/.config/"

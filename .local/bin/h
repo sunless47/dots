@@ -2,6 +2,11 @@
 #=================#
 # hell navigation #
 #=================#
+
+# error handling
+set -euo pipefail
+
+# get all books in the library (hell)
 hell() {
   # hell directory
   dire=$HOME/hell

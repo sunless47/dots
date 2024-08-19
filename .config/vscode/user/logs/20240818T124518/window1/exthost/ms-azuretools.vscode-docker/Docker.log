@@ -1,0 +1,11 @@
+2024-08-18 12:45:28.994 [error] Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+2024-08-18 12:45:28.994 [error] Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+2024-08-18 12:45:29.007 [error] Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+2024-08-18 12:45:29.043 [error] Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+2024-08-18 12:45:29.066 [error] Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+
+2024-08-18 12:45:29.069 [error] Failed to set up event listener: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?

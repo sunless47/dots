@@ -1,0 +1,29 @@
+2024-08-18 12:45:21.251 [info] Extension host with pid 18370 started
+2024-08-18 12:45:21.622 [info] ExtensionService#_doActivateExtension ms-python.python, startup: false, activationEvent: 'onWalkthrough:pythonWelcome'
+2024-08-18 12:45:22.097 [error] Error: spawn /home/sunless/.config/vscode/extensions/ms-python.python-2024.12.3-universal/python-env-tools/bin/pet ENOENT
+	at ChildProcess._handle.onexit (node:internal/child_process:286:19)
+	at onErrorNT (node:internal/child_process:484:16)
+	at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+2024-08-18 12:45:22.203 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2024-08-18 12:45:22.219 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2024-08-18 12:45:22.241 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-08-18 12:45:22.305 [info] Eager extensions activated
+2024-08-18 12:45:22.334 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-08-18 12:45:22.337 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-08-18 12:45:22.347 [info] ExtensionService#_doActivateExtension esbenp.prettier-vscode, startup: false, activationEvent: 'onStartupFinished'
+2024-08-18 12:45:22.390 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: false, activationEvent: 'onStartupFinished'
+2024-08-18 12:45:23.217 [error] Error: Extension 'ms-python.python' CANNOT use API proposal: testObserver.
+Its package.json#enabledApiProposals-property declares:  but NOT testObserver.
+ The missing proposal MUST be added and you must start in extension development mode or use the following command line switch: --enable-proposed-api ms-python.python
+	at P (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:142:59143)
+	at get testResults (/usr/lib/code/out/vs/workbench/api/node/extensionHostProcess.js:164:25438)
+	at T.activate (/home/sunless/.config/vscode/extensions/ms-python.python-2024.12.3-universal/out/client/extension.js:2:845522)
+	at /home/sunless/.config/vscode/extensions/ms-python.python-2024.12.3-universal/out/client/extension.js:2:2460
+	at Array.map (<anonymous>)
+	at m.activateWorkspace (/home/sunless/.config/vscode/extensions/ms-python.python-2024.12.3-universal/out/client/extension.js:2:2450)
+2024-08-18 12:45:23.604 [error] Error: ENOENT: no such file or directory, open '/home/sunless/.config/vscode/user/User/globalStorage/vscodevim.vim/.registers'
+2024-08-18 12:45:27.193 [info] ExtensionService#_doActivateExtension ms-azuretools.vscode-docker, startup: false, activationEvent: 'onView:dockerContainers'
+2024-08-18 12:45:29.328 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'
+2024-08-18 12:45:33.155 [info] Extension host terminating: renderer closed the MessagePort
+2024-08-18 12:45:33.182 [error] Error: ENOENT: no such file or directory, open '/home/sunless/.config/vscode/user/User/globalStorage/vscodevim.vim/.registers'
+2024-08-18 12:45:33.189 [info] Extension host with pid 18370 exiting with code 0

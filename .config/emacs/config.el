@@ -130,6 +130,7 @@
 (find-file "~/darkness/spring.org")
 (find-file "~/darkness/database.org")
 (find-file "~/darkness/container.org")
+(find-file "~/darkness/ai.org")
 (find-file "~/insanity/bash.org")
 (find-file "~/insanity/church.org")
 (find-file "~/insanity/evil.org")

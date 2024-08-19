@@ -2,6 +2,11 @@
 #========================#
 # bash configs navigator #
 #========================#
+
+# error handling
+set -euo pipefail
+
+# edit bash related configs
 bash-config() {
   # target all bash configs
   conf=( "$HOME/.config/bash/alias"\ 

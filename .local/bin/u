@@ -2,4 +2,9 @@
 #=================
 # System Updator #
 #=================
+
+# error handling
+set -euo pipefail
+
+# update system
 sudo pacman -Syyyu

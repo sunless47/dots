@@ -2,8 +2,12 @@
 #============#
 # arch clean #
 #============#
+
+# error handling
+set -euo pipefail
+
+# clean cache
 clean(){
-  sudo paccache -r
-  sudo pacman -Scc
+  paccache -r
 }
 clean

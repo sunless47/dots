@@ -1,0 +1,57 @@
+2024-08-18 12:52:35.312 [info] Getting Manifest... aaron-bond.better-comments
+2024-08-18 12:52:35.706 [info] Installing extension: aaron-bond.better-comments {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/sunless/.config/vscode/extensions/extensions.json","path":"/home/sunless/.config/vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.92.1","date":"2024-08-09T07:48:41.621Z"}}
+2024-08-18 12:52:38.064 [error] Could not load vsce-sign module Cannot find module '@vscode/vsce-sign'
+Require stack:
+- /usr/lib/code/out/bootstrap-fork.js
+2024-08-18 12:52:38.064 [info] Extension signature verification is not done: aaron-bond.better-comments
+2024-08-18 12:52:38.173 [info] Extracted extension to file:///home/sunless/.config/vscode/extensions/aaron-bond.better-comments-3.0.2-universal: aaron-bond.better-comments
+2024-08-18 12:52:38.250 [info] Renamed to /home/sunless/.config/vscode/extensions/aaron-bond.better-comments-3.0.2-universal
+2024-08-18 12:52:38.314 [info] Extension installed successfully: aaron-bond.better-comments vscode-userdata:/home/sunless/.config/vscode/extensions/extensions.json
+2024-08-18 12:53:15.297 [info] Getting Manifest... streetsidesoftware.code-spell-checker
+2024-08-18 12:53:15.715 [info] Installing extension: streetsidesoftware.code-spell-checker {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/sunless/.config/vscode/extensions/extensions.json","path":"/home/sunless/.config/vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.92.1","date":"2024-08-09T07:48:41.621Z"}}
+2024-08-18 12:53:18.642 [error] Could not load vsce-sign module Cannot find module '@vscode/vsce-sign'
+Require stack:
+- /usr/lib/code/out/bootstrap-fork.js
+2024-08-18 12:53:18.643 [info] Extension signature verification is not done: streetsidesoftware.code-spell-checker
+2024-08-18 12:53:19.294 [info] Extracted extension to file:///home/sunless/.config/vscode/extensions/streetsidesoftware.code-spell-checker-3.0.1-universal: streetsidesoftware.code-spell-checker
+2024-08-18 12:53:19.401 [info] Renamed to /home/sunless/.config/vscode/extensions/streetsidesoftware.code-spell-checker-3.0.1-universal
+2024-08-18 12:53:19.487 [info] Extension installed successfully: streetsidesoftware.code-spell-checker vscode-userdata:/home/sunless/.config/vscode/extensions/extensions.json
+2024-08-18 12:53:19.500 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/sunless/.config/vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/sunless/.config/vscode/extensions/extensions.json.vsctmp'
+    at o.create (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19408)
+    at u (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19519)
+    at p.hb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36714)
+    at p.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:29034)
+    at async c.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14940)
+    at async z.ub (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:120384)
+2024-08-18 12:54:00.445 [info] Getting Manifest... formulahendry.auto-rename-tag
+2024-08-18 12:54:01.669 [info] Installing extension: formulahendry.auto-rename-tag {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/sunless/.config/vscode/extensions/extensions.json","path":"/home/sunless/.config/vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.92.1","date":"2024-08-09T07:48:41.621Z"}}
+2024-08-18 12:54:03.544 [error] Could not load vsce-sign module Cannot find module '@vscode/vsce-sign'
+Require stack:
+- /usr/lib/code/out/bootstrap-fork.js
+2024-08-18 12:54:03.545 [info] Extension signature verification is not done: formulahendry.auto-rename-tag
+2024-08-18 12:54:03.604 [info] Extracted extension to file:///home/sunless/.config/vscode/extensions/formulahendry.auto-rename-tag-0.1.10-universal: formulahendry.auto-rename-tag
+2024-08-18 12:54:03.655 [info] Renamed to /home/sunless/.config/vscode/extensions/formulahendry.auto-rename-tag-0.1.10-universal
+2024-08-18 12:54:03.717 [info] Extension installed successfully: formulahendry.auto-rename-tag vscode-userdata:/home/sunless/.config/vscode/extensions/extensions.json
+2024-08-18 12:54:03.729 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/sunless/.config/vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/sunless/.config/vscode/extensions/extensions.json.vsctmp'
+    at o.create (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19408)
+    at u (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19519)
+    at p.hb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36714)
+    at p.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:29034)
+    at async c.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14940)
+    at async z.ub (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:120384)
+2024-08-18 12:54:43.511 [info] Getting Manifest... xabikos.javascriptsnippets
+2024-08-18 12:54:44.001 [info] Installing extension: xabikos.javascriptsnippets {"isMachineScoped":false,"installPreReleaseVersion":false,"pinned":false,"profileLocation":{"$mid":1,"external":"vscode-userdata:/home/sunless/.config/vscode/extensions/extensions.json","path":"/home/sunless/.config/vscode/extensions/extensions.json","scheme":"vscode-userdata"},"installOnlyNewlyAddedFromExtensionPack":true,"isApplicationScoped":false,"productVersion":{"version":"1.92.1","date":"2024-08-09T07:48:41.621Z"}}
+2024-08-18 12:54:45.570 [error] Could not load vsce-sign module Cannot find module '@vscode/vsce-sign'
+Require stack:
+- /usr/lib/code/out/bootstrap-fork.js
+2024-08-18 12:54:45.571 [info] Extension signature verification is not done: xabikos.javascriptsnippets
+2024-08-18 12:54:45.587 [info] Extracted extension to file:///home/sunless/.config/vscode/extensions/xabikos.javascriptsnippets-1.8.0-universal: xabikos.javascriptsnippets
+2024-08-18 12:54:45.676 [info] Renamed to /home/sunless/.config/vscode/extensions/xabikos.javascriptsnippets-1.8.0-universal
+2024-08-18 12:54:45.734 [info] Extension installed successfully: xabikos.javascriptsnippets vscode-userdata:/home/sunless/.config/vscode/extensions/extensions.json
+2024-08-18 12:54:45.759 [error] [uncaught exception in sharedProcess]: Error: ENOENT: no such file or directory, stat '/home/sunless/.config/vscode/extensions/extensions.json.vsctmp': EntryNotFound (FileSystemError): Error: ENOENT: no such file or directory, stat '/home/sunless/.config/vscode/extensions/extensions.json.vsctmp'
+    at o.create (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19408)
+    at u (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:54:19519)
+    at p.hb (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:36714)
+    at p.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:29034)
+    at async c.stat (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:59:14940)
+    at async z.ub (/usr/lib/code/out/vs/code/node/sharedProcess/sharedProcessMain.js:105:120384)

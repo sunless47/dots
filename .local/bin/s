@@ -2,20 +2,24 @@
 #==============#
 # edit scripts #
 #==============#
-  # target directory
-  dire="$HOME/.local/bin"
 
-  # list everything, print specific column, preview with bat 
-  script=$( \
-    find ${dire} -type f | \
-    awk -F / '{print $6}' | \
-    fzf --multi --keep-right --preview 'bat --language bash $HOME/.local/bin/{}'\
-  )
+# error handling
+set -euo pipefail
 
-  # stop if no input
-  if [[ -z $script ]]; then
-    exit
-  fi
+# target directory
+dire="$HOME/.local/bin"
 
-  # open with nvim
-  nvim "${dire}/${script}"
+# list everything, print specific column, preview with bat 
+script=$( \
+  find ${dire} -type f | \
+  awk -F / '{print $6}' | \
+  fzf --multi --keep-right --preview 'bat --language bash $HOME/.local/bin/{}'\
+)
+
+# stop if no input
+if [[ -z $script ]]; then
+  exit
+fi
+
+# open with nvim
+nvim "${dire}/${script}"
