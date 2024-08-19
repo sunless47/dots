@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#====================#
+# springboot project #
+#====================#
+
+# error handling
+set -euo pipefail
+
+# initialize with springboot cli
+spring-initializer() {
+  spring init \
+    --build 'maven' \
+    --version '3.3.2' \
+    --group-id 'com.app' \
+    --artifact-id 'sunless' \
+    --name 'sunless' \
+    --description 'Database project for Spring Boot' \
+    --package-name 'com.app.sunless' \
+    --packaging 'jar' \
+    --java-version '17' \
+    --dependencies 'web,lombok,jpa,mariadb' \
+    --extract
+}
+
+# calling function
+spring-initializer

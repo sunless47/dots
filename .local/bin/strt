@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#===========================#
+# shutdown prompt with tofi #
+#===========================#
+
+# error handling
+set -euo pipefail
+
+# shutdown or restart
+start() {
+  # print options
+  rise=$(echo -e "Net\nDocker" | tofi --width=30% --height=20% --prompt-text="Awakening: ")
+
+  # run chosen command
+  case ${rise} in
+
+    Net)
+      systemctl start NetworkManager
+    ;;
+
+    Docker)
+      systemctl start Docker
+    ;;
+
+  esac
+}
+
+# calling function
+start

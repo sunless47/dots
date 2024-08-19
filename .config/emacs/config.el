@@ -88,7 +88,7 @@
 
 ;; more todo options
 (setq org-todo-keywords
-   '((sequence "APOCALYPSE" "DOOM" "CHORE" "DARK RITUAL")))
+   '((sequence "APOCALYPSE" "DOOM" "CHORE" "THIRST" "DARK RITUAL" "NOICE")))
 
 ;; logging time
 ;;  (setq org-log-done 'time)

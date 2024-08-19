@@ -8,7 +8,7 @@ set -euo pipefail
 
 # choose arch docs in local system
 arch-docs() {
-  # arch docs directory
+  # initialize arch docs directory variable
   dire=/usr/share/doc/arch-wiki/html/en/
 
   # selecting with fzf

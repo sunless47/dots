@@ -1,7 +1,9 @@
 {
     "userDataProfilesMigration": true,
     "profileAssociations": {
-        "workspaces": {},
+        "workspaces": {
+            "file:///home/sunless/alchemy/projects/attachment": "__default__profile__"
+        },
         "emptyWindows": {
             "1723975109379": "__default__profile__"
         }
@@ -12,7 +14,11 @@
     "telemetry.devDeviceId": "6f3991b1-7871-4166-b87d-71ef49be7321",
     "backupWorkspaces": {
         "workspaces": [],
-        "folders": [],
+        "folders": [
+            {
+                "folderUri": "file:///home/sunless/alchemy/projects/attachment"
+            }
+        ],
         "emptyWindows": [
             {
                 "backupFolder": "1723975109379"
@@ -21,12 +27,13 @@
     },
     "windowsState": {
         "lastActiveWindow": {
-            "backupPath": "/home/sunless/.config/vscode/user/Backups/1723975109379",
+            "folder": "file:///home/sunless/alchemy/projects/attachment",
+            "backupPath": "/home/sunless/.config/vscode/user/Backups/edf6174168486a1452144a6739c8ccd0",
             "uiState": {
                 "mode": 1,
-                "x": 803,
+                "x": 3,
                 "y": 3,
-                "width": 794,
+                "width": 1594,
                 "height": 894
             }
         },
@@ -89,6 +96,20 @@
                                     "id": "vscode.menubar.separator"
                                 },
                                 {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sunless/alchemy/projects/attachment",
+                                        "path": "/home/sunless/alchemy/projects/attachment",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/alchemy/projects/attachment"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
                                     "id": "workbench.action.openRecent",
                                     "label": "&&More..."
                                 },
@@ -122,13 +143,11 @@
                     },
                     {
                         "id": "workbench.action.files.save",
-                        "label": "&&Save",
-                        "enabled": false
+                        "label": "&&Save"
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "Save &&As...",
-                        "enabled": false
+                        "label": "Save &&As..."
                     },
                     {
                         "id": "saveAll",
@@ -143,6 +162,13 @@
                         "label": "Share",
                         "submenu": {
                             "items": [
+                                {
+                                    "id": "github.copyVscodeDevLinkFile",
+                                    "label": "Copy vscode.dev Link"
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
                                 {
                                     "id": "workbench.profiles.actions.exportProfile",
                                     "label": "Export Profile (Default)..."
@@ -264,13 +290,15 @@
                     },
                     {
                         "id": "workbench.action.files.revert",
-                        "label": "Re&&vert File",
-                        "enabled": false
+                        "label": "Re&&vert File"
                     },
                     {
                         "id": "workbench.action.closeActiveEditor",
-                        "label": "&&Close Editor",
-                        "enabled": false
+                        "label": "&&Close Editor"
+                    },
+                    {
+                        "id": "workbench.action.closeFolder",
+                        "label": "Close &&Folder"
                     },
                     {
                         "id": "workbench.action.closeWindow",
@@ -467,7 +495,8 @@
                                 },
                                 {
                                     "id": "workbench.action.toggleSidebarVisibility",
-                                    "label": "&&Primary Side Bar"
+                                    "label": "&&Primary Side Bar",
+                                    "checked": true
                                 },
                                 {
                                     "id": "workbench.action.toggleAuxiliaryBar",
@@ -499,7 +528,8 @@
                                         "items": [
                                             {
                                                 "id": "workbench.action.activityBarLocation.default",
-                                                "label": "&&Default"
+                                                "label": "&&Default",
+                                                "checked": true
                                             },
                                             {
                                                 "id": "workbench.action.activityBarLocation.top",
@@ -511,8 +541,7 @@
                                             },
                                             {
                                                 "id": "workbench.action.activityBarLocation.hide",
-                                                "label": "&&Hidden",
-                                                "checked": true
+                                                "label": "&&Hidden"
                                             }
                                         ]
                                     }
@@ -1306,6 +1335,11 @@
                 "label": "Ctrl+W",
                 "userSettingsLabel": "ctrl+w"
             },
+            "workbench.action.closeFolder": {
+                "label": "Ctrl+K F",
+                "isNative": false,
+                "userSettingsLabel": "ctrl+k f"
+            },
             "workbench.action.closeWindow": {
                 "label": "Alt+F4",
                 "userSettingsLabel": "alt+f4"
@@ -1701,8 +1735,8 @@
             "sideBarSide": "left",
             "editorPartMinWidth": 220,
             "titleBarHeight": 0,
-            "activityBarWidth": 0,
-            "sideBarWidth": 0,
+            "activityBarWidth": 48,
+            "sideBarWidth": 300,
             "statusBarHeight": 0,
             "windowBorder": false
         }
