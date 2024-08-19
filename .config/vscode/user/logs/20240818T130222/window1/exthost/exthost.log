@@ -1,5 +1,0 @@
-2024-08-18 13:02:24.997 [info] Extension host with pid 21144 started
-2024-08-18 13:02:25.201 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
-2024-08-18 13:02:25.205 [info] ExtensionService#_doActivateExtension formulahendry.auto-rename-tag, startup: true, activationEvent: '*'
-2024-08-18 13:02:25.269 [info] Extension host terminating: renderer closed the MessagePort
-2024-08-18 13:02:25.284 [info] Extension host with pid 21144 exiting with code 0

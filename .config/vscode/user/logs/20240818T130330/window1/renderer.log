@@ -1,3 +1,0 @@
-2024-08-18 13:03:32.728 [info] Started local extension host with pid 21426.
-2024-08-18 13:03:35.888 [info] [perf] Render performance baseline is 50ms
-2024-08-18 13:03:36.193 [error] ENOENT: no such file or directory, open '/home/sunless/.config/vscode/user/User/globalStorage/vscodevim.vim/.registers': Error: ENOENT: no such file or directory, open '/home/sunless/.config/vscode/user/User/globalStorage/vscodevim.vim/.registers'
