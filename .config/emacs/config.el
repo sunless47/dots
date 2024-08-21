@@ -315,6 +315,8 @@
                                    ;; web
                                    ("https://www.reddit.com/r/WebDev.rss")
                                    ("https://www.reddit.com/r/Javascript.rss")
+                                   ("https://morss.it/https://hnrss.org/newest")
+                                   ("https://morss.it/https://hnrss.org/frontpage")
                                    ("https://www.reddit.com/r/LearnWebDev.rss")
                                    ("https://www.reddit.com/r/LearnJavascript.rss")
                                    ("https://www.reddit.com/r/Node.rss")

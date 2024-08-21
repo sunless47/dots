@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#==================#
+# offline websites #
+#==================#
+
+# error handling
+set -euo pipefail
+
+# function to open offline websites located in mine folder
+offline-websites() {
+  # initialize mine directory variable
+  mine=$HOME/mine/
+
+  # selecting with fzf
+  man=$( \
+    exa ${mine} | \
+    fzf \
+  )
+
+  # stop if no input
+  if [[ -z $man ]]; then
+    exit
+  fi
+
+  # opening with qutebrowser
+  qutebrowser ${mine}${man}/index.html 2> /dev/null & 
+}
+
+# calling function
+offline-websites

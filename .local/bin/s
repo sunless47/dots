@@ -22,4 +22,4 @@ if [[ -z $script ]]; then
 fi
 
 # open with nvim
-nvim "${dire}/${script}"
+code "${dire}/${script}"

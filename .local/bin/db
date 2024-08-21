@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+#============#
+# api tester #
+#============#
+
+# error handling
+set -euo pipefail
+
+# setup mysql container
+mysql() {
+  docker run \
+    --name mysqldb \
+    --env MYSQL_ROOT_PASSWORD=123 \
+    --detach \
+    mysql:latest
+}
+
+# setup mariadb container
+maria() {
+  docker run \
+    --name mymariadb \
+    --env MARIADB_ROOT_PASSWORD=123 \
+    --detach \
+    mariadb:latest
+}
+
+# calling function
+#mysql
+#maria

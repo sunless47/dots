@@ -19,7 +19,7 @@ start() {
     ;;
 
     Docker)
-      systemctl start Docker
+      systemctl start docker
     ;;
 
   esac

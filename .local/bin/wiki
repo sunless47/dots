@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#=======================#
+# use wiki using docker #
+#=======================#
+
+# error handling
+set -euo pipefail
+
+# start ollama container
+wik() {
+  docker start wiki
+#  docker run \ 
+#  --detach \
+#  --volume /home/sunless/wikis:/data \
+#  --publish 42069:80 ghcr.io/kiwix/kiwix-serve \
+#  *.zim
+}
+
+# calling function
+wik

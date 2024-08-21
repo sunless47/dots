@@ -419,6 +419,8 @@
                                      ;; web
                                      ("https://www.reddit.com/r/WebDev.rss")
                                      ("https://www.reddit.com/r/Javascript.rss")
+                                     ("https://morss.it/https://hnrss.org/newest")
+                                     ("https://morss.it/https://hnrss.org/frontpage")
                                      ("https://www.reddit.com/r/LearnWebDev.rss")
                                      ("https://www.reddit.com/r/LearnJavascript.rss")
                                      ("https://www.reddit.com/r/Node.rss")
@@ -459,7 +461,7 @@
                                      ("https://morss.it/https://gizmodo.com/tag/diy/rss")        ("https://morss.it/feeds.mashable.com/mashable/entertainment")
                                      ("https://morss.it/rss.cnn.com/rss/edition_world.rss")
                                      ("https://morss.it/https://feeds.feedburner.com/TechCrunch/Twitter")
-                                     
+
                                      ("https://morss.it/https://www.theguardian.com/uk/rss")
                                      ("https://morss.it/https://www.theguardian.com/world/rss")
                                      ("https://morss.it/https://www.theguardian.com/us-news/rss")

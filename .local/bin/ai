@@ -8,8 +8,9 @@ set -euo pipefail
 
 # start ollama container
 llm() {
-  docker container start ollama
-  docker exec -it ollama /bin/bash
+  docker start ai
+  docker exec -it ai ollama run tinydolphin
+  # docker exec -it ai /bin/sh -c 'ollama run tinydolphin'
 }
 
 # calling function

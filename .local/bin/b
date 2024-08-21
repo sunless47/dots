@@ -18,7 +18,7 @@ bash-config() {
   # list everything and open with emacs
   find ${conf[@]} | \
   fzf --multi --keep-right --preview 'bat {}' | \
-  xargs -ro nvim
+  xargs -ro code
 }
 
 # calling function
