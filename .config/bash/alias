@@ -9,4 +9,3 @@ alias cc='better-commits'
 
 alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias code='code --extensions-dir $HOME/.config/vscode/extensions/ --user-data-dir $HOME/.config/vscode/user'
-alias dw='aria2c'

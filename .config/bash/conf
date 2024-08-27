@@ -1,28 +1,30 @@
 # ps1
-# colors
-BLUE="$(tput setaf 4)"
-GREEN="$(tput setaf 2)"
-RED="$(tput setaf 1)"
-RESET="$(tput sgr0)"
+## colors
+RED="\[$(tput setaf 1)\]"
+GREEN="\[$(tput setaf 2)\]"
+BLUE="\[$(tput setaf 4)\]"
+RESET="\[$(tput sgr0)\]"
 
-# exit status
-exitStatus()
-{
-    if [[ $? == 0 ]]; then
-        echo "${GREEN}:)"
-    else
-        echo "${RED}XO"
-    fi
-}
-
-# right
-rightprompt()
-{
+## right side
+currentTime() {
     printf "%*s" $COLUMNS "$(date +%R\ %a\ %d\ %b)"
 }
 
-# final form
-PS1="$(tput sc; rightprompt; tput rc)\$(exitStatus) ${BLUE}\w \$${RESET} "
+## function exit status
+exitStatus() {
+    if [[ $? == 0 ]]; then
+        printf ":)"
+    else
+        printf "XO"
+    fi
+}
+
+## final form
+PS1="\[$(
+    tput sc
+    currentTime
+    tput rc
+)\]\$(exitStatus) ${BLUE}\w \$${RESET} "
 
 # fzf
 source /usr/share/fzf/key-bindings.bash
@@ -31,8 +33,3 @@ export FZF_ALT_C_COMMAND="fd --type d --hidden --follow . "
 
 # autocd from arch wiki
 shopt -s autocd
-
-# tmux
-if [ ! -z $TMUX ]; then
-  source ~/.bashrc
-fi

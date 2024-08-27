@@ -9,11 +9,7 @@ set -euo pipefail
 # start ollama container
 wik() {
   docker start wiki
-#  docker run \ 
-#  --detach \
-#  --volume /home/sunless/wikis:/data \
-#  --publish 42069:80 ghcr.io/kiwix/kiwix-serve \
-#  *.zim
+  qutebrowser http://localhost:42069/ 2>/dev/null &
 }
 
 # calling function

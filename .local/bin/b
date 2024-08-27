@@ -9,16 +9,16 @@ set -euo pipefail
 # edit bash related configs
 bash-config() {
   # target all bash configs
-  conf=( "$HOME/.config/bash/alias"\ 
+  conf=("$HOME/.config/bash/alias"\ 
     "$HOME/.config/bash/conf"\ 
     "$HOME/.bashrc"\ 
     "$HOME/.bash_profile"\ 
     "/etc/bash.bashrc")
 
   # list everything and open with emacs
-  find ${conf[@]} | \
-  fzf --multi --keep-right --preview 'bat {}' | \
-  xargs -ro code
+  find ${conf[@]} |
+    fzf --multi --keep-right --preview 'bat {}' |
+    xargs -ro code
 }
 
 # calling function
