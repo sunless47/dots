@@ -1,25 +1,36 @@
 #!/usr/bin/env bash
-#========================#
-# bash configs navigator #
-#========================#
+#===================================#
+# title       : bash editor         #
+# date        : 2024-09-16          #
+# author      : sunless47           #
+# description : bash configs editor #
+#===================================#
 
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
 # edit bash related configs
-bash-config() {
-  # target all bash configs
-  conf=("$HOME/.config/bash/alias"\ 
-    "$HOME/.config/bash/conf"\ 
-    "$HOME/.bashrc"\ 
-    "$HOME/.bash_profile"\ 
-    "/etc/bash.bashrc")
+bash-configs() {
+  # all configs as an array
+  conf=( \
+    "$HOME/.config/bash/alias" \ 
+    "$HOME/.config/bash/conf" \ 
+    "$HOME/.bashrc" \ 
+    "$HOME/.bash_profile" \ 
+    "/etc/bash.bashrc" \
+  )
 
-  # list everything and open with emacs
+  # list with fzf and open with nvim
   find ${conf[@]} |
     fzf --multi --keep-right --preview 'bat {}' |
-    xargs -ro code
+    xargs --no-run-if-empty nvim
 }
 
 # calling function
-bash-config
+bash-configs
+
+# sins against the church
+source $HOME/alchemy/stash/bash-insulter/src/bash.command-not-found
+print_message

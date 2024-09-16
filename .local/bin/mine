@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
-#==================#
-# offline websites #
-#==================#
+#======================================#
+# title       : docker os's            #
+# date        : 2024-09-16             #
+# author      : sunless47              #
+# description : run containerized os's #
+#======================================#
 
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
 # function to open offline websites located in mine folder
 offline-websites() {

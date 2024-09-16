@@ -8,7 +8,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-agenda-files
-	 '("/home/sunless/.config/emacs/config.org" "/home/sunless/darkness/git.org" "/home/sunless/darkness/html.org" "/home/sunless/darkness/java.org" "/home/sunless/darkness/js.org" "/home/sunless/darkness/md.org" "/home/sunless/insanity/bash.org" "/home/sunless/insanity/church.org" "/home/sunless/insanity/evil.org" "/home/sunless/insanity/lunix.org" "/home/sunless/murder/pure.org"))
+	 '("/home/sunless/darkness/container.org" "/home/sunless/darkness/back.org" "/home/sunless/darkness/front.org" "/home/sunless/.config/emacs/config.org" "/home/sunless/murder/pure.org" "/home/sunless/murder/stats.org" "/home/sunless/murder/soul.org" "/home/sunless/darkness/lunix.org" "/home/sunless/darkness/programmer.org" "/home/sunless/darkness/coder.org" "/home/sunless/darkness/tinker.org" "/home/sunless/murder/hell.org"))
  '(package-selected-packages
 	 '(elfeed tldr rainbow-delimiters rainbow-mode ivy-rich all-the-icons-ivy-rich counsel flycheck flyspell-correct all-the-icons projectile emacs-crossword sudoku dashboard vterm which-key magit catppuccin-theme)))
 (custom-set-faces

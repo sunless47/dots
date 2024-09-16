@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
-#===========#
-# quick fix #
-#===========#
+#=================================================#
+# title       : optimize mirrors                  #
+# date        : 2024-09-16                        #
+# author      : sunless47                         #
+# description : find faster mirrors for downloads #
+#=================================================#
 
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
 # get fastest repositories
 get-repos() {

@@ -7,7 +7,8 @@ c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.preferred_color_scheme = "dark"
 c.tabs.last_close = "blank"
 c.url.start_pages = ["qute://bookmarks/"]
-#c.url.start_pages = ["about:blank"]
+c.content.private_browsing = True
+c.zoom.default = '75%'
 
 # pure
 c.scrolling.bar = "never"

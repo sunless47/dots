@@ -1,35 +1,40 @@
 # ps1
 ## colors
-RED="\[$(tput setaf 1)\]"
-GREEN="\[$(tput setaf 2)\]"
-BLUE="\[$(tput setaf 4)\]"
-RESET="\[$(tput sgr0)\]"
+# RED="\[$(tput setaf 1)\]"
+# GREEN="\[$(tput setaf 2)\]"
+# BLUE="\[$(tput setaf 4)\]"
+# RESET="\[$(tput sgr0)\]"
 
 ## right side
 currentTime() {
     printf "%*s" $COLUMNS "$(date +%R\ %a\ %d\ %b)"
 }
 
-## function exit status
-exitStatus() {
-    if [[ $? == 0 ]]; then
-        printf ":)"
-    else
-        printf "XO"
-    fi
-}
-
 ## final form
-PS1="\[$(
+PS1='\[$(
     tput sc
     currentTime
     tput rc
-)\]\$(exitStatus) ${BLUE}\w \$${RESET} "
+)\]\[$(tput setaf 4)\]\w \$\[$(tput sgr0)\] '
+
+# insulter
+# source $HOME/alchemy/stash/bash-insulter/src/bash.command-not-found
+source $HOME/alchemy/stash/bash-insulter/src/bash.command-not-found
 
 # fzf
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 export FZF_ALT_C_COMMAND="fd --type d --hidden --follow . "
 
+
+# MPD daemon start (if no other user instance exists)
+[ ! -s ~/.config/mpd/pid ] && mpd
+
 # autocd from arch wiki
 shopt -s autocd
+
+# evil
+# set -o vi
+
+# fortune
+fortune

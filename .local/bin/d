@@ -1,0 +1,260 @@
+#!/usr/bin/env bash
+#============================================#
+# title       : offline documentation        #
+# date        : 2024-09-16                   #
+# author      : sunless47                    #
+# description : offline documentation viewer #
+#============================================#
+
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# arch-docs (needs downloading)
+arch_wiki() {
+  # initialize docs directory variable
+  ARCH_DOCS=/usr/share/doc/arch-wiki/html/en/*.html
+
+  # selecting with fzf and filtering with awk
+  SPEC_DOC=$( \
+    find $ARCH_DOCS -type f | \
+    awk -F / '{print $8}' | \
+    fzf \
+  )
+
+  # stop if no input
+  if [[ -z $SPEC_DOC ]]; then
+    exit
+  else
+    # update variable
+    SPEC_DOC=/usr/share/doc/arch-wiki/html/en/$SPEC_DOC
+  fi
+
+  # opening with qutebrowser
+  qutebrowser ${SPEC_DOC} 2> /dev/null & 
+}
+
+# bash documentation
+bash_docs() {
+  # initialize docs directory variable
+  BASH_DOCS=/usr/share/doc/bash/*.html
+
+  # selecting with fzf
+  SPEC_DOC=$( \
+    find $BASH_DOCS -type f | \
+    awk -F / '{print $6}' | \
+    fzf \
+  )
+
+  # stop if no input
+  if [[ -z $SPEC_DOC ]]; then
+    exit
+  else
+    # update variable
+    SPEC_DOC=/usr/share/doc/bash/$SPEC_DOC
+  fi
+
+  # opening with qutebrowser
+  qutebrowser ${SPEC_DOC} 2> /dev/null & 
+}
+
+# ffmpeg documentation
+ffmpeg_docs() {
+  # initialize docs directory variable
+  FFMPEG_DOCS=/usr/share/doc/ffmpeg/*.html
+
+  # selecting with fzf
+  SPEC_DOC=$( \
+    find $FFMPEG_DOCS -type f | \
+    awk -F / '{print $6}' | \
+    fzf \
+  )
+
+  # stop if no input
+  if [[ -z $SPEC_DOC ]]; then
+    exit
+  else
+    # update variable
+    SPEC_DOC=/usr/share/doc/ffmpeg/$SPEC_DOC
+  fi
+
+  # opening with qutebrowser
+  qutebrowser ${SPEC_DOC} 2> /dev/null & 
+}
+
+# lua documentation
+lua_docs() {
+  # initialize docs directory variable
+  LUA_DOCS=/usr/share/doc/lua/*.html
+
+  # selecting with fzf
+  SPEC_DOC=$( \
+    find $LUA_DOCS -type f | \
+    awk -F / '{print $6}' | \
+    fzf \
+  )
+
+  # stop if no input
+  if [[ -z $SPEC_DOC ]]; then
+    exit
+  else
+    # update variable
+    SPEC_DOC=/usr/share/doc/lua/$SPEC_DOC
+  fi
+
+  # opening with qutebrowser
+  qutebrowser ${SPEC_DOC} 2> /dev/null & 
+}
+
+# clang documentation
+clang_docs() {
+  # initialize docs directory variable
+  CLANG_DOCS='/usr/share/doc/clang/html/*.html'
+
+  # selecting with fzf
+  SPEC_DOC=$( \
+    find $CLANG_DOCS -type f | \
+    awk -F / '{print $7}' | \
+    fzf \
+  )
+
+  # stop if no input
+  if [[ -z $SPEC_DOC ]]; then
+    exit
+  else
+    # update variable
+    SPEC_DOC=/usr/share/doc/clang/html/$SPEC_DOC
+  fi
+
+  # opening with qutebrowser
+  qutebrowser ${SPEC_DOC} 2> /dev/null & 
+}
+
+# mpd documentation
+mpd_docs() {
+  # initialize docs directory variable
+  MPD_DOCS='/usr/share/doc/mpd/html/*.html'
+
+  # selecting with fzf
+  SPEC_DOC=$( \
+    find $MPD_DOCS -type f | \
+    awk -F / '{print $7}' | \
+    fzf \
+  )
+
+  # stop if no input
+  if [[ -z $SPEC_DOC ]]; then
+    exit
+  else
+    # update variable
+    SPEC_DOC=/usr/share/doc/mpd/html/$SPEC_DOC
+  fi
+
+  # opening with qutebrowser
+  qutebrowser ${SPEC_DOC} 2> /dev/null & 
+}
+
+# pipewire documentation
+pipewire_docs() {
+  # initialize docs directory variable
+  PIPEWIRE_DOCS='/usr/share/doc/pipewire/html/*.html'
+
+  # selecting with fzf
+  SPEC_DOC=$( \
+    find $PIPEWIRE_DOCS -type f | \
+    awk -F / '{print $7}' | \
+    fzf \
+  )
+
+  # stop if no input
+  if [[ -z $SPEC_DOC ]]; then
+    exit
+  else
+    # update variable
+    SPEC_DOC=/usr/share/doc/pipewire/html/$SPEC_DOC
+  fi
+
+  # opening with qutebrowser
+  qutebrowser ${SPEC_DOC} 2> /dev/null & 
+}
+
+# qemu documentation
+qemu_docs() {
+  # initialize docs directory variable
+  QEMU_DOCS='/usr/share/doc/qemu/qemu/*.html'
+
+  # selecting with fzf
+  SPEC_DOC=$( \
+    find $QEMU_DOCS -type f | \
+    awk -F / '{print $7}' | \
+    fzf \
+  )
+
+  # stop if no input
+  if [[ -z $SPEC_DOC ]]; then
+    exit
+  else
+    # update variable
+    SPEC_DOC=/usr/share/doc/qemu/qemu/$SPEC_DOC
+  fi
+
+  # opening with qutebrowser
+  qutebrowser ${SPEC_DOC} 2> /dev/null & 
+}
+
+# main function
+docs() {
+  # list doc functions
+  DOCS=$(printf '%s\n' \
+    'qemu' \
+    'pipewire' \
+    'mpd' \
+    'lua' \
+    'ffmpeg' \
+    'clang' \
+    'bash' \
+    'arch wiki' | \
+    fzf \
+  )
+
+  # run chosen documentation
+  case ${DOCS} in
+
+    'bash')
+      bash_docs
+    ;;
+
+    'arch wiki')
+      arch_wiki
+    ;;
+
+    'clang')
+      clang_docs
+    ;;
+
+    'lua')
+      lua_docs
+    ;;
+
+    'ffmpeg')
+      ffmpeg_docs
+    ;;
+
+    'mpd')
+      mpd_docs
+    ;;
+
+    'pipewire')
+      pipewire_docs
+    ;;
+
+    'qemu')
+      qemu_docs
+    ;;
+
+  esac
+}
+
+# calling the main function
+docs

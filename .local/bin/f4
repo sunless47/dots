@@ -1,24 +1,37 @@
 #!/usr/bin/env bash
-#===========================#
-# shutdown prompt with tofi #
-#===========================#
+#==================================#
+# title       : shutdown           #
+# date        : 2024-09-16         #
+# author      : sunless47          #
+# description : shutdown or reboot #
+#==================================#
 
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
 # shutdown or restart
 bye() {
   # print options
-  fate=$(echo -e "Soul\nBody" | tofi --width=50% --height=20% --prompt-text="What are you willing to lose first?")
+  fate=$( \
+    printf '%s\n' 'soul' 'body' | \
+    tofi \
+    --width=50% \
+    --height=20% \
+    --prompt-text="What are you willing to lose first?" \
+  )
 
   # run chosen command
   case ${fate} in
 
-    Soul)
+    soul)
+      dunstify 'bye!'
       shutdown --no-wall now
     ;;
 
-    Body)
+    body)
+      dunstify 'brb!'
       reboot --no-wall
     ;;
 

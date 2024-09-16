@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
-#============#
-# api tester #
-#============#
+#=======================================#
+# title       : run database            #
+# date        : 2024-09-16              #
+# author      : sunless47               #
+# description : run the docker database #
+#=======================================#
 
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
 # setup mysql container
 mysql() {
   docker run \
     --name mysqldb \
     --env MYSQL_ROOT_PASSWORD=123 \
+    --network mysqlnet \
+    --publish 3306:3306 \
     --detach \
     mysql:latest
 }
@@ -20,6 +27,7 @@ maria() {
   docker run \
     --name mymariadb \
     --env MARIADB_ROOT_PASSWORD=123 \
+    --publish 3306:3306 \
     --detach \
     mariadb:latest
 }

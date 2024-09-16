@@ -1,24 +1,30 @@
 #!/usr/bin/env bash
-#===========================#
-# shutdown prompt with tofi #
-#===========================#
+#=======================================#
+# title       : services                #
+# date        : 2024-09-16              #
+# author      : sunless47               #
+# description : start specific services #
+#=======================================#
 
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
 # shutdown or restart
 start() {
   # print options
-  rise=$(echo -e "Net\nDocker" | tofi --width=30% --height=20% --prompt-text="Awakening: ")
+  rise=$(printf '%s\n' net docker | \
+    tofi --width=30% --height=20% --prompt-text="Awakening: ")
 
   # run chosen command
   case ${rise} in
 
-    Net)
+    net)
       systemctl start NetworkManager
     ;;
 
-    Docker)
+    docker)
       systemctl start docker
     ;;
 

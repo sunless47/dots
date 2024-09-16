@@ -1,10 +1,59 @@
 #!/usr/bin/env bash
-#=================
-# System Updator #
-#=================
+#================================================#
+# title       : system updator and browser       #
+# date        : 2024-09-16                       #
+# author      : sunless47                        #
+# description : update system or browser package #
+#================================================#
 
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
 # update system
-sudo pacman -Syyyu
+update(){
+  sudo pacman \
+    --sync \
+    --refresh \
+    --refresh \
+    --sysupgrade
+}
+
+# browse apps
+browse-apps(){
+  # list packages without the version numbers (quiet huh...)
+  pacman \
+    --query \
+    --color always \
+    --unrequired \
+    --quiet | \
+  # arch wiki reference (idk but works)
+  fzf \
+    --preview 'pacman -Qil {}' --bind 'enter:execute(pacman -Qil {} | less)'
+}
+
+# main function
+apps() {
+  # list doc functions
+  DOCS=$(printf '%s\n' \
+    'update' \
+    'browse' | \
+    fzf \
+  )
+
+  # run chosen documentation
+  case ${DOCS} in
+
+    'update')
+      update
+    ;;
+
+    'browse')
+      browse-apps
+    ;;
+  esac
+}
+
+# call main function
+apps

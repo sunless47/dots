@@ -1,21 +1,38 @@
 #!/usr/bin/env bash
-#===================#
-# configs navigator #
-#===================#
+#===================================================#
+# title       : configs editor                      #
+# date        : 2024-09-16                          #
+# author      : sunless47                           #
+# description : all user configs located in .config #
+#===================================================#
 
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
-# select configs
+# list and select configs
 configs() {
   # target directory
-  dire="$HOME/.config/"
+  confs=( \
+    "$HOME/.config/alacritty/" \
+    "$HOME/.config/nvim/" \
+    "$HOME/.config/dunst/" \
+    "$HOME/.config/emacs/con*" \
+    "$HOME/.config/hypr/" \
+    "$HOME/.config/qutebrowser/config.py" \
+    "$HOME/.config/tofi/" \
+  )
 
-  # list everything and open with emacs
-  find ${dire} -type f | \
-  fzf --keep-right --preview 'bat {1}' | \
-  xargs -ro nvim
+  # list configs with fzf and open with nvim
+  find ${confs[@]} -type f |
+    fzf --multi --keep-right --preview 'bat {1}' |
+    xargs --no-run-if-empty nvim
 }
 
 # calling function
 configs
+
+# sins against the church
+source $HOME/alchemy/stash/bash-insulter/src/bash.command-not-found
+print_message

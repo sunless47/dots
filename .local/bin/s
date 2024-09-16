@@ -1,25 +1,38 @@
 #!/usr/bin/env bash
-#==============#
-# edit scripts #
-#==============#
+#========================================#
+# title       : edit scripts             #
+# date        : 2024-09-16               #
+# author      : sunless47                #
+# description : edit my personal scripts #
+#========================================#
 
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
-# target directory
-dire="$HOME/.local/bin"
+scripts(){
+  # target directory
+  dire="$HOME/.local/bin"
 
-# list everything, print specific column, preview with bat 
-script=$( \
-  find ${dire} -type f | \
-  awk -F / '{print $6}' | \
-  fzf --multi --keep-right --preview 'bat --language bash $HOME/.local/bin/{}'\
-)
+  # list everything, print specific column, preview with bat
+  script=$(
+    find ${dire} -type f |
+      awk -F / '{print $6}' |
+      fzf \
+        --multi \
+        --keep-right \
+        --preview 'bat --language bash $HOME/.local/bin/{}'
+  )
 
-# stop if no input
-if [[ -z $script ]]; then
-  exit
-fi
+  # stop if no input
+  if [[ -z $script ]]; then
+    exit
+  fi
 
-# open with nvim
-code "${dire}/${script}"
+  # open with nvim
+  nvim "${dire}/${script}"
+}
+
+# calling functions
+scripts

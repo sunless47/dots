@@ -1,15 +1,8 @@
 #!/usr/bin/env bash
-#===========#
-# quick fix #
-#===========#
-
-# error handling
-set -euo pipefail
-
-# purpose
-fix() {
-  echo "hi"
-}
-
-# calling function
-fix
+#================================#
+# title       : quick fix        #
+# date        : 2024-09-12       #
+# author      : sunless47        #
+# description : testing a script #
+#================================#
+ls $@

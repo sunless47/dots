@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
-#============#
-# api tester #
-#============#
+#==================================#
+# title       : api tester         #
+# date        : 2024-09-16         #
+# author      : sunless47          #
+# description : test api with curl #
+#==================================#
  
-# error handling
-set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
-# test api
-quick-api() {
+# test api with curl
+get-api() {
   # target link
   link=""
 
@@ -16,7 +21,7 @@ quick-api() {
     "${link}"
 }
 
-# test api with different requests
+# test api with different types requests
 crud-api() {
   # target link
   link=""
@@ -34,8 +39,9 @@ crud-api() {
 }
 
 # calling function
-#quick-api
+#get-api
 #crud-api
 
-# hack to go to the next line
-echo ""
+# insulter
+source $HOME/alchemy/stash/bash-insulter/src/bash.command-not-found
+print_message

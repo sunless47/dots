@@ -88,7 +88,7 @@
 
 ;; more todo options
 (setq org-todo-keywords
-   '((sequence "APOCALYPSE" "DOOM" "CHORE" "THIRST" "DARK RITUAL" "NOICE")))
+   '((sequence "APOCALYPSE" "THE END" "CHORE" "|" "NOICE")))
 
 ;; logging time
 ;;  (setq org-log-done 'time)
@@ -108,6 +108,8 @@
 ;; why not personal information
 (setq user-full-name "Sunless"
       user-mail-address "sunlesskelv@gmail.com")
+;; faster org agenda
+(global-set-key (kbd "C-;") 'org-agenda)
 
 (set-face-attribute 'default nil :font "JetBrainsMonoNerdFontMono" )
 (set-frame-font "JetBrainsMonoNerdFontMono" nil t)
@@ -117,27 +119,17 @@
   (message " "))
 ;; load org files
 (find-file "~/.config/emacs/config.org")
-(find-file "~/darkness/git.org")
-(find-file "~/darkness/js.org")
-(find-file "~/darkness/ts.org")
-(find-file "~/darkness/html.org")
-(find-file "~/darkness/java.org")
-(find-file "~/darkness/md.org")
-(find-file "~/darkness/code.org")
-(find-file "~/darkness/css.org")
-(find-file "~/darkness/meriola.org")
-(find-file "~/darkness/angular.org")
-(find-file "~/darkness/spring.org")
-(find-file "~/darkness/database.org")
+(find-file "~/darkness/front.org")
+(find-file "~/darkness/back.org")
+(find-file "~/darkness/coder.org")
+(find-file "~/darkness/lunix.org")
 (find-file "~/darkness/container.org")
-(find-file "~/darkness/ai.org")
-(find-file "~/insanity/bash.org")
-(find-file "~/insanity/church.org")
-(find-file "~/insanity/evil.org")
-(find-file "~/insanity/lunix.org")
-(find-file "~/murder/desires.org")
+(find-file "~/darkness/programmer.org")
+(find-file "~/darkness/tinker.org")  
+(find-file "~/murder/hell.org")
 (find-file "~/murder/pure.org")
-(find-file "~/murder/survivor.org")
+(find-file "~/murder/stats.org")
+(find-file "~/murder/soul.org")
 (find-file "~/.config/emacs/diary")
 
 (put 'dired-find-alternate-file 'disabled nil)
@@ -229,20 +221,20 @@
   (which-key-mode))
 
 (use-package vterm
-    :ensure t)
+      :ensure t)
 
-  ;; name your new term
-;;  (defun tm(Name)
-;;  (interactive "sName: ")
-;;  (vterm "/bin/bash")
-;;  (rename-buffer (concat "*" Name "*") t))
+    ;; name your new term
+  ;;  (defun tm(Name)
+  ;;  (interactive "sName: ")
+  ;;  (vterm "/bin/bash")
+  ;;  (rename-buffer (concat "*" Name "*") t))
 
-  ;; speed
-  (defun tm()
-    (interactive)
-    (let ((name (concat "vterm://" (buffer-name))))
-      (vterm (current-buffer))))
-  (global-set-key (kbd "s-o") 'tm)
+    ;; speed
+    (defun tm()
+      (interactive)
+      (let ((name (concat "vterm://" (buffer-name))))
+        (vterm (current-buffer))))
+;;    (global-set-key (kbd "s-o") 'tm)
 
 (use-package sudoku
   :ensure t)
@@ -298,6 +290,12 @@
 
 (use-package tldr
   :ensure t)
+
+(use-package tex
+  :ensure auctex)
+(with-eval-after-load 'tex
+  (add-to-list 'TeX-view-program-selection
+               '(output-pdf "Zathura")))
 
 (use-package elfeed
              :ensure t

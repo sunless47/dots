@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
-#===================-===============#
-# play specific video in the folder #
-#===================================#
+#=====================================================#
+# title       : play video                            #
+# date        : 2024-09-16                            #
+# author      : sunless47                             #
+# description : play video the same current directory #
+#=====================================================#
 
-# error handling
-# set -euo pipefail
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
 
 # play video within the directory
 play-vid() {

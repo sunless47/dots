@@ -1,15 +1,20 @@
 [window]
 opacity = 0.5
+padding = { x = 3, y = 3 }
 
 [mouse]
 hide_when_typing = true
 
 [keyboard]
 bindings = [
-   { key = "Return", mods = "Control", action = "SpawnNewInstance" },
-   { key = "PageUp", action = "ScrollLineUp" },
-   { key = "PageDown", action = "ScrollLineDown" }
+   { key = 'Return', mods = 'Control', action = 'SpawnNewInstance' },
+   { key = 'PageUp', action = 'ScrollLineUp' },
+   { key = 'PageDown', action = 'ScrollLineDown' }
 ]
 
 [font]
-normal = {family = "JetBrainsMono Nerd Font", style = "Regular"}
+normal = {family = 'JetBrainsMono Nerd Font', style = 'Regular'}
+size = 9
+
+[cursor]
+style = { shape = 'Underline', blinking = 'Never' }

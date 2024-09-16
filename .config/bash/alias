@@ -1,7 +1,7 @@
 alias ls='exa -1A'
 alias ll='exa -Al'
-alias l='source ~/.bashrc; clear'
-alias i="sudo pacman -S"
+alias l='clear && source ~/.bashrc'
+alias i='sudo pacman -S'
 
 alias dot='/usr/bin/git --git-dir=$HOME/alchemy/stash/dotbare/ --work-tree=$HOME'
 alias not='/usr/bin/git --git-dir=$HOME/alchemy/stash/dotnotes/ --work-tree=$HOME'
@@ -9,3 +9,5 @@ alias cc='better-commits'
 
 alias rr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias code='code --extensions-dir $HOME/.config/vscode/extensions/ --user-data-dir $HOME/.config/vscode/user'
+alias k8s='minikube kubectl --'
+alias f='watch --no-title --color --interval 5 --exec fortune'
