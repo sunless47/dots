@@ -9,15 +9,19 @@
 # error handling (set -euo pipefail)
 set -o errexit
 set -o nounset
-set -o pipefail
+# set -o pipefail
 
 # play video within the directory
 play-vid() {
   # list everything with fzf
-  video=$(find *.mkv *.mp4 *.webm 2>/dev/null | fzf)
+  video=$( \
+    find *.mkv *.mp4 *.webm \
+    2> /dev/null | \
+    fzf \
+  )
 
   # mpv
-  mpv --terminal=no --speed=2 "${video}" &
+  mpv --no-terminal --speed=2 "${video}" &
 }
 
 # calling function

@@ -10,4 +10,4 @@ export VSCODE_USER_DATA="${HOME}/.config/vscode/user/"
 export EDITOR="nvim"
 
 # startup
-Hyprland
+#Hyprland

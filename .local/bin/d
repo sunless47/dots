@@ -207,14 +207,14 @@ qemu_docs() {
 docs() {
   # list doc functions
   DOCS=$(printf '%s\n' \
+    'arch wiki' \
+    'bash' \
+    'lua' \
     'qemu' \
     'pipewire' \
     'mpd' \
-    'lua' \
     'ffmpeg' \
-    'clang' \
-    'bash' \
-    'arch wiki' | \
+    'clang' | \
     fzf \
   )
 

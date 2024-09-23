@@ -18,7 +18,6 @@ PS1='\[$(
 )\]\[$(tput setaf 4)\]\w \$\[$(tput sgr0)\] '
 
 # insulter
-# source $HOME/alchemy/stash/bash-insulter/src/bash.command-not-found
 source $HOME/alchemy/stash/bash-insulter/src/bash.command-not-found
 
 # fzf

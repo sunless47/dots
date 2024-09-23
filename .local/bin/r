@@ -14,8 +14,14 @@ set -o pipefail
 
 # delete files and folders in the directory
 multiple-files-deleter() {
-  exa --almost-all | \
-  fzf --multi --preview 'bat {1}' | \
+  ls \
+    --almost-all \
+    --reverse \
+    --sort=size \
+    --quoting-style=shell | \
+  fzf \
+    --multi \
+    --preview 'bat {1}' | \
   xargs --open-tty --no-run-if-empty --verbose \
   rm -I  --verbose --recursive
 }

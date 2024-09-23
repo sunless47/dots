@@ -20,6 +20,8 @@ configs() {
     "$HOME/.config/dunst/" \
     "$HOME/.config/emacs/con*" \
     "$HOME/.config/hypr/" \
+    "$HOME/.config/fd/" \
+    "$HOME/.config/fish/" \
     "$HOME/.config/qutebrowser/config.py" \
     "$HOME/.config/tofi/" \
   )

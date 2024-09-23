@@ -20,7 +20,7 @@ hell() {
   topic=$( \
     find ${dire}/* -type d | \
     awk -F / '{print $5}' | \
-    fzf \
+    fzf --wrap --wrap-sign='> ' --exit-0 \
   )
 
   # stop if no input
@@ -32,7 +32,7 @@ hell() {
   book=$( \
     find ${dire}/${topic} -type f | \
     awk -F / '{print $6}' | \
-    fzf \
+    fzf --wrap --wrap-sign='> ' --exit-0 \
   )
 
   # stop if no input

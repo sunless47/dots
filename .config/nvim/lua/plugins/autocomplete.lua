@@ -1,89 +1,49 @@
 return {
-	{ -- auto-completion suggestions
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-buffer", -- source for text in buffer
-			"hrsh7th/cmp-path", -- source for file system paths
-			{
-				"L3MON4D3/LuaSnip",
-				-- follow latest release.
-				build = "make install_jsregexp",
-			},
-			"saadparwaiz1/cmp_luasnip", -- for autocompletion
-			"rafamadriz/friendly-snippets", -- useful snippets
-			"onsails/lspkind.nvim", -- vs-code like pictograms
-		},
-		config = function()
-			local cmp = require("cmp")
+  "hrsh7th/nvim-cmp",
+  event = "InsertEnter",
+  dependencies = {
+    "hrsh7th/cmp-buffer", -- source for text in buffer
+    "hrsh7th/cmp-path",   -- source for file system paths
+    {
+      "L3MON4D3/LuaSnip",
+      version = "v2.*",
+    },
+    "rafamadriz/friendly-snippets",
+  },
+  config = function()
+    local cmp = require("cmp")
+    -- local lspkind = require("lspkind")
+    local luasnip = require("luasnip")
 
-			local luasnip = require("luasnip")
+    require("luasnip.loaders.from_vscode").lazy_load()
 
-			local lspkind = require("lspkind")
+    cmp.setup({
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
+      },
+      mapping = cmp.mapping.preset.insert({
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<CR>"] = cmp.mapping.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = true,
+        }),
+      }),
+      sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
+      }),
+    })
 
-			-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-			require("luasnip.loaders.from_vscode").lazy_load()
-
-			cmp.setup({
-				completion = {
-					completeopt = "menu,menuone,preview,noselect",
-				},
-				snippet = { -- configure how nvim-cmp interacts with snippet engine
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-					["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-					["<C-e>"] = cmp.mapping.abort(), -- close completion window
-					["<CR>"] = cmp.mapping.confirm({ select = false }),
-				}),
-				-- sources for autocompletion
-				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" }, -- snippets
-					{ name = "buffer" }, -- text within current buffer
-					{ name = "path" }, -- file system paths
-				}),
-
-				-- configure lspkind for vs-code like pictograms in completion menu
-				formatting = {
-					format = lspkind.cmp_format({
-						maxwidth = 50,
-						ellipsis_char = "...",
-					}),
-				},
-			})
-		end,
-	},
-
-	{ -- automatic closing tags
-		"windwp/nvim-autopairs",
-		event = { "InsertEnter" },
-		dependencies = {
-			"hrsh7th/nvim-cmp",
-		},
-		config = function()
-			-- import nvim-autopairs
-			local autopairs = require("nvim-autopairs")
-
-			-- configure autopairs
-			autopairs.setup({
-				check_ts = true, -- enable treesitter
-			})
-
-			-- import nvim-autopairs completion functionality
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
-			-- import nvim-cmp plugin (completions plugin)
-			local cmp = require("cmp")
-
-			-- make autopairs and completion work together
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-		end,
-	},
+    vim.cmd([[
+          set completeopt=menuone,noinsert,noselect
+          highlight! default link CmpItemKind CmpItemMenuDefault
+        ]])
+  end,
 }

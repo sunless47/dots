@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#========================================#
+# title       : edit scripts             #
+# date        : 2024-09-16               #
+# author      : sunless47                #
+# description : edit my personal scripts #
+#========================================#
+
+# error handling (set -euo pipefail)
+# set -o errexit
+# set -o nounset
+# set -o pipefail
+
+better-emacs(){
+  emacsclient \
+    --reuse-frame \
+    --quiet \
+    --suppress-output
+}
+
+# calling functions
+better-emacs &

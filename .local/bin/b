@@ -14,18 +14,32 @@ set -o pipefail
 # edit bash related configs
 bash-configs() {
   # all configs as an array
-  conf=( \
+  CONF=( \
     "$HOME/.config/bash/alias" \ 
     "$HOME/.config/bash/conf" \ 
     "$HOME/.bashrc" \ 
     "$HOME/.bash_profile" \ 
-    "/etc/bash.bashrc" \
+    '/etc/bash.bashrc' \
   )
 
   # list with fzf and open with nvim
-  find ${conf[@]} |
-    fzf --multi --keep-right --preview 'bat {}' |
-    xargs --no-run-if-empty nvim
+  SH_SCRPT=$( \
+    find ${CONF[@]} | \
+    fzf \
+      --multi \
+      --wrap \
+      --no-unicode \
+      --keep-right \
+      --preview 'bat {}' \
+    )
+
+  # stop if no input
+  if [[ -z $SH_SCRPT ]]; then
+    exit
+  fi
+
+  # open with neovim
+  nvim "${SH_SCRPT}"
 }
 
 # calling function

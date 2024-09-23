@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+#========================================#
+# title       : edit scripts             #
+# date        : 2024-09-16               #
+# author      : sunless47                #
+# description : edit my personal scripts #
+#========================================#
+
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
+
+scripts(){
+  # target directory
+  EMACS_SCRIPTS=( \
+    "$HOME/.config/emacs/*.el" \
+    "$HOME/.config/emacs/configs/packages/*.el" \
+    "$HOME/.config/emacs/configs/sunless/*.el" \
+  )
+
+  # list everything,  preview with bat
+  E_SCRPT=$( \
+    find ${EMACS_SCRIPTS[@]} | \
+      fzf \
+        --multi \
+        --wrap \
+        --no-unicode \
+        --keep-right \
+        --preview 'bat {}'
+  )
+
+  # stop if no input
+  if [[ -z $E_SCRPT ]]; then
+    exit
+  fi
+
+  # open with emacs
+  emacs "${E_SCRPT}" &
+}
+
+# calling functions
+scripts

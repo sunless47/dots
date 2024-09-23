@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#==========================================#
+# title       : video view                 #
+# date        : 2024-09-17                 #
+# author      : sunless47                  #
+# description : view youtube from terminal #
+# #========================================#
+
+# error handling (set -euo pipefail)
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# youtube stream
+ytfzf \
+  --video-pref=480p \
+  --sort-by=upload_date \
+  --detach \
+  $@

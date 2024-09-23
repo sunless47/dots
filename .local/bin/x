@@ -8,8 +8,8 @@
 
 # error handling (set -euo pipefail)
 #set -o errexit
-set -o nounset
-set -o pipefail
+#set -o nounset
+#set -o pipefail
 
 
 # app deleting function
@@ -25,6 +25,7 @@ deleter(){
   # query the info of the selected package in fzf
   fzf \
     --multi \
+    --no-unicode \
     --preview 'pacman --query --info {1}' | \
 
   # deleted the selected apps and their dependecies
@@ -51,6 +52,7 @@ bloat(){
   # query the info of the selected package in fzf
   fzf \
     --multi \
+    --no-unicode \
     --preview 'pacman --query --color always --info {1}' | \
 
   # deleted the selected apps and their dependecies

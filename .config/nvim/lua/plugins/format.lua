@@ -6,36 +6,28 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-
-        -- good stuffs
-        latex = { "latexindent" },
-        markdown = { "mdformat" },
-        lua = { "stylua" },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
+        css = { "prettier" },
         bash = { "shellharden" },
-
-        -- web dev
-        html = { "htmlbeautifier" },
-        css = { "prettierd" },
-        scss = { "prettierd" },
-        javascript = { "prettierd" },
-        typescript = { "prettierd" },
-        angular = { "prettierd" },
+        html = { "prettier" },
+        json = { "prettier" },
+        yaml = { "yamlfmt" },
         sql = { "sql-formatter" },
-        json = { "fixjson" },
-
-        -- programming
-        python = { "blackd-client" },
-        c = { "clang-format" },
+        markdown = { "markdownlint", "mdformat", stop_after_first = true },
+        latex = { "latexindent" },
+        lua = { "stylua" },
+        python = { "isort" },
         java = { "google-java-format" },
       },
-      format_on_save = {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      },
+      -- format_on_save = {
+      --   lsp_fallback = true,
+      --   async = false,
+      --   timeout_ms = 1000,
+      -- },
     })
 
-    vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+    vim.keymap.set({ "n", "v" }, "<leader>f", function()
       conform.format({
         lsp_fallback = true,
         async = false,
